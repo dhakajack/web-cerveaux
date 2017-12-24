@@ -111,6 +111,7 @@ To say definiteArticle of (item - a thing):
 		if the indefinite article of the item is "des":
 			say "s".
 
+The can't go that way rule response (A) is "Vous ne pouvez pas aller par là."
 
 Chapter 6 - Suppress Mention of Doors
 
@@ -292,7 +293,7 @@ Instead of pushing the distributeur de nourriture:
 			say "Le dispositif de conditionnement actif produit des cubes de nourriture pour chien qui s'accumulent sur le sol.";
 			move the tas de nourriture de chien to the Laboratoire Zoologique.
 			
-The tas de nourriture de chien is in the void.
+The tas de nourriture de chien is in the void. The indefinite article of the tas de nourriture is "un".
 
 Every turn when the chien is in the cage and the player is in the Laboratoire Zoologique:
 	if a random chance of 3 in 8 succeeds:
@@ -465,7 +466,9 @@ To say pnFrigo:
 			say "congélateur pour spécimens de pathologie".
 			
 After opening the frigo:
-	move the boîte en plastique to the location.
+	move the boîte en plastique to the location;
+	say "Vouz ouvrez le frigo et une boîte en plastique tombe au sol."
+	
 
 The boîte en plastique is a closed openable container in the frigo. The boîte en plastique is closed. The indefinite article of the boîte en plastique is "une".
 
@@ -483,7 +486,6 @@ After going north from Couloir 1 when the labPathDoor is open for the first time
 Section Les Toilettes
 
 Les Toilettes is a room. The description of Les Toilettes is "[descToilettes]." Les Toilettes are south of Couloir 1. The printed name of Les Toilettes is "[pnToilettes]". 
-
 To say descToilettes:
 	if the consciousness of the player is less than 3:
 		say "L'odeur d'urine est forte ici[one of]. Beaucoup ont marqué leur territoire. Ce doit être un endroit très convoité[or][stopping]";
@@ -509,7 +511,8 @@ Instead of simpleOpening when the player is in Les Toilettes:
 		say "[if the potty is in Les Toilettes]Vous avez déjà soulevé[otherwise]Vous soulevez[end if] le couvercle des toilettes.";
 	now the potty is in Les Toilettes.
 	
-The potty is a thing in the void. The printed name of the potty is "[pnPotty]".
+The potty is a thing in the void. The printed name of the potty is "[pnPotty]". The indefinite article of the potty is "des".
+
 
 To say pnPotty:
 	if the consciousness of the player is less than 3:
@@ -632,7 +635,7 @@ Instead of going north when the player is in the sas:
 			
 Before eating scientifique when the conversations of scientifique are less than 5:
 	now the BlockChatterFlag is true;
-	say "[one of]La scientifique vous repousse avec son pied-de-biche. Une fois hors de portée de votre bouche menaçante, elle appuie sur un bouton de l[apostrophe]interphone et dit : « Attention : salle de contrôle. Ici docteur Rambaud, dans le sas. Julien est ici avec moi. Malheureusement, je dois vous signaler que l'expérience a raté.  Ne déverrouillez en aucun cas la porte extérieure. »[paragraph break][or]Le docteur Rambaud ne bouge pas de sa position derrière le bureau, mais lorsque vous l'approchez, elle lance une série de coups avec son pied-de-biche qui vous fait reconsidérer votre action.[or]La scientifique vous confie : « Je vous fais crédit de votre persévérance, néanmoins… » et elle vous frappe carrément au nez. Ébranlé, vous trébuchez un peu et vous hâtez de reculer.[or]Le docteur Rambaud vous bat avec le pied-de-biche à plusieurs reprises.[stopping]";
+	say "[one of]La scientifique vous repousse avec son pied-de-biche. Une fois hors de portée de votre bouche menaçante, elle appuie sur un bouton de l[apostrophe]interphone et dit : « Attention : salle de contrôle. Ici docteur Rambaud, dans le sas. Julien est ici avec moi. Malheureusement, je dois vous signaler que l'expérience a raté.  Ne déverrouillez en aucun cas la porte extérieure. »[or]Le docteur Rambaud ne bouge pas de sa position derrière le bureau, mais lorsque vous l'approchez, elle lance une série de coups avec son pied-de-biche qui vous fait reconsidérer votre action.[or]La scientifique vous confie : « Je vous fais crédit de votre persévérance, néanmoins… » et elle vous frappe carrément au nez. Ébranlé, vous trébuchez un peu et vous hâtez de reculer.[or]Le docteur Rambaud vous bat avec le pied-de-biche à plusieurs reprises.[stopping]";
 	stop the action.
 	
 
@@ -683,7 +686,10 @@ Carry out simpleOpening:
 	
 [this works here because things only contain a single item]
 After opening something (called the item):
-	say "Vouz ouvrez [definiteArticle of item] [item], rélévant [a random thing in item]."
+	say "Vouz ouvrez [definiteArticle of item] [item]";
+	if the item contains exactly one thing:
+		say ", révélant [a random thing in item]";
+	say "."
 
 Section 3 - simpleEating
 
@@ -851,7 +857,7 @@ After going north from Escalier 2 when the sasDoor is not locked for the first t
 	
 After eating scientifique:
 	now the BlockChatterFlag is true;
-	say "Vous dévorez le cerveau de la scientifique. Immédiatement vous voyez le monde d'un point de vue plus raffiné et érudit.[paragraph break]« [italic type]C'est fait ? demande la voix d'Isabelle avec hésitation.[line break]-- Oui, tu étais délicieuse, enthousiasme le souris.[line break]-- Le meilleur jusqu'ici, ajoute Lucky.[line break]-- Excuse mes co-esprits, ils manquent cruellement de tact, intervient la tranche de cerveau.[line break]-- Hé ! gémissent la souris et le chien.[line break]-- Sois la bienvenue, Isabelle, continue la tranche de cerveau. Laisse-moi te présenter notre petite troupe : voilà Lucky, le chien, et ici figure Le Marquis Des Souris (ou juste simplement [quotation mark]Souris[quotation mark] parce qu'il est plutôt modeste), et moi, je suis le nommé [quotation mark]tranche de cerveau[quotation mark]. On est à ta disposition.[line break]-- Bonjour, les gars, dit Isabelle avec chaleur.  »[paragraph break]";
+	say "[line break]Vous dévorez le cerveau de la scientifique. Immédiatement vous voyez le monde d'un point de vue plus raffiné et érudit.[paragraph break]« [italic type]C'est fait ? demande la voix d'Isabelle avec hésitation.[line break]-- Oui, tu étais délicieuse, enthousiasme le souris.[line break]-- Le meilleur jusqu'ici, ajoute Lucky.[line break]-- Excuse mes co-esprits, ils manquent cruellement de tact, intervient la tranche de cerveau.[line break]-- Hé ! gémissent la souris et le chien.[line break]-- Sois la bienvenue, Isabelle, continue la tranche de cerveau. Laisse-moi te présenter notre petite troupe : voilà Lucky, le chien, et ici figure Le Marquis Des Souris (ou juste simplement [quotation mark]Souris[quotation mark] parce qu'il est plutôt modeste), et moi, je suis le nommé [quotation mark]tranche de cerveau[quotation mark]. On est à ta disposition.[line break]-- Bonjour, les gars, dit Isabelle avec chaleur.  »[paragraph break]";
 	move the dépouille saignante du Docteur Rambaud to the sas;
 	move the interphone to the sas;
 	move the panneau électrique to escalier 1;
@@ -997,7 +1003,7 @@ The petite créature grise is an edible thing. It is in the void. The indefinite
 
 The dépouille saignante du Docteur Rambaud is a thing in the void. The indefinite article of dépouille saignante du Docteur Rambaud is "la".
 
-The interphone is a buttoned thing in the void. The interphone can be live. The interphone is not live.
+The interphone is a buttoned thing in the void. The interphone can be live. The interphone is not live. The indefinite article of the interphone is "une".
 
 Instead of pushing the interphone:[only present at consciousness 4]
 	if the interphone is not live:
@@ -1006,7 +1012,7 @@ Instead of pushing the interphone:[only present at consciousness 4]
 	otherwise:
 		say "Vous avez déjà activé l'interphone et sa LED reste allumée."
 
-The panneau électrique is an openable closed container in the void. The disjoncteurs are in the panneau électrique. The disjoncteurs are plural-named. The disjoncteurs are broken. The indefinite article of disjoncteurs is "des". The printed name of the disjoncteurs is "disjoncteurs[if the disjoncteurs are broken] sautés[end if]".
+The panneau électrique is an openable closed container in the void. The disjoncteurs are in the panneau électrique. The disjoncteurs are plural-named. The disjoncteurs are broken. The indefinite article of disjoncteurs is "des". The printed name of the disjoncteurs is "disjoncteurs[if the disjoncteurs are broken] sautés[end if]". The indefinite article of the panneau électrique is "un".
 
 Instead of touching the disjoncteurs:
 	say "Vous remettez les disjoncteurs";
@@ -1016,9 +1022,9 @@ Instead of touching the disjoncteurs:
 		now the disjoncteurs are broken;
 	say "."
 
-The unité de synthèse microfluidique is an openable closed container in the void. 
+The unité de synthèse microfluidique is an openable closed container in the void. The indefinite article of the unité de synthèse microfluidique is "une". The printed name of the unité de synthèse microfluidique is "unité de synthèse microfluidique[if the unité de synthèse microfluidique is closed] (fermée)[end if]".
 
-The servomoteur is in the unité de synthèse microfluidique. The servomoteur is broken. The printed name of the servomoteur is "[pnServo]".
+The servomoteur is in the unité de synthèse microfluidique. The servomoteur is broken. The printed name of the servomoteur is "[pnServo]". The indefinite article of servomoteur is "un".
 
 To say pnServo:
 	say "servomoteur";
@@ -1039,7 +1045,7 @@ To terminate the game:
 	say "[VictoryText]".
 		
 To say VictoryText:
-	say "[paragraph break][bold type]        *** VOUS AVEZ GAGNÉ ***[roman type][paragraph break]Vous avez sauvé le monde du fléau du virus zombie777.[paragraph break][bold type]>infos[roman type][line break]Ce jeu participe au Concours Francophone de Fictions Interactives (2017). Il a été écrit en Inform 7.[paragraph break][bold type]>remerciements[roman type][paragraph break]Je voudrais remercier :[paragraph break]* Les organisateurs du concours.[paragraph break]* Graham Nelson pour avoir conçu et écrit Inform 7.[paragraph break]* Les auteurs des modules utilisés dans cette oeuvre : Eric Forgeot, Emily Short et Erik Temple.[paragraph break]* Ben Collins-Sussman, qui a peint la couverture à l'aquarelle.[paragraph break]* Relecteurs: Éric Forgeot et Stéphane Flauder.[paragraph break]* Beta-testeurs: Brian Rushton et Denise Jobin.[paragraph break][bold type]FIN."
+	say "[paragraph break][bold type]        *** VOUS AVEZ GAGNÉ ***[roman type][paragraph break]Vous avez sauvé le monde du fléau du virus zombie777.[paragraph break][bold type]>infos[roman type][line break]Ce jeu participe au Concours Francophone de Fictions Interactives (2017). Il a été écrit en Inform 7.[paragraph break][bold type]>remerciements[roman type][paragraph break]Je voudrais remercier :[paragraph break]* Les organisateurs du concours.[paragraph break]* Graham Nelson pour avoir conçu et écrit Inform 7.[paragraph break]* Juhana Leinonen pour l'extension [quotation mark]Vorple[quotation mark].[paragraph break]* Ben Collins-Sussman, qui a peint la couverture à l'aquarelle.[paragraph break]* Relecteurs: Éric Forgeot et Stéphane Flauder.[paragraph break]* Beta-testeurs: Brian Rushton et Denise Jobin.[paragraph break][bold type]FIN."
 	
 Chapter 17 - Testing
 
