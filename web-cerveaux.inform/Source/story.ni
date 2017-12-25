@@ -92,7 +92,10 @@ To say exitList:
 
 Chapter 5 - Pinch hitting for French Module
 
-[Very limited and situational implementation, but good enough for this purpose]
+[As far as I can tell, the most recent versions of French-language modules for Inform are not 
+compatible with Inform 7 v 6M62, which I needed for Vorple v3. These bits of code work in a
+very narrow context, but because this game has a limited number of commands and objects, 
+it works well enough for this specific game.]
 
 Understand "nord" as north.
 Understand "est" as east.
@@ -137,8 +140,8 @@ The can't go that way rule response (A) is "Vous ne pouvez pas aller par là."
 Rule for printing the banner text: 
 	place an inline element called "titre" reading "[story title]";
 	say line break;
-	say "Un voyageur sans esprit par [story author][line break]";
-	say "Release 1 / Serial number 171225 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N)[line break]".
+	say "[story headline] par [story author][line break]";
+	say "Release [release number] / Serial number 171225 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N)[line break]".
 
 Chapter 6 - Suppress Mention of Doors
 
@@ -146,8 +149,6 @@ For printing a locale paragraph about a door (called the item)
 	(this is the don't mention doors in room descriptions rule):
 	set the locale priority of the item to 0;
 	continue the activity.
-	
-[The room description paragraphs about objects rule is not listed in any rulebook.]
 
 Chapter 7 - Button Setup
 
