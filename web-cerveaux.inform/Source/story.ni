@@ -135,6 +135,13 @@ When play begins:
 	sort the palette in random order;
 	increment the knownCommands of the player.
 
+
+Rule for printing the banner text: 
+	place an inline element called "titre" reading "Faute de servo";
+	say line break;
+	say "Un voyageur sans esprit par Tana Ostrova[line break]";
+	say "Release 1 / Serial number 171225 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N)[line break]".
+
 After printing the banner text:
 	say "[line break][italic type]Où suis-je ? D'ailleurs… qui suis-je ?[roman type][paragraph break]Vous vous réveillez tout seul dans une pièce plutôt banale et bleuâtre.[paragraph break][italic type]Pourquoi je ne me souviens de rien ?[paragraph break]Je dois me concentrer ! Qu'est-ce qui s'est passé ?[paragraph break]En tout cas, la solution n'est pas ici -- il faut explorer un peu.".
 	
@@ -812,7 +819,7 @@ After going east for the first time:
 After going west from Couloir 2 for the first time:
 	move the petite créature grise to the Bloc Opératoire;
 	try looking;
-	say "Elle se cache dans les ombres, tremblante.";
+	say "Elle se cache dans les ombres, tremblant.";
 	increment the knownCommands of the player.
 	
 After eating the petite créature grise:
