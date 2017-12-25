@@ -55,6 +55,11 @@ The player has a number called knownCommands. The knownCommands of the player is
 
 Chapter 4 - Exit Lister
 
+To listExits:
+	clear all elements called "arrows";
+	display text "[exitList]" in the element called "arrows".
+	
+
 To say exitList:
 	let L be {up, west, north, south, east, down};
 	repeat with way running through L:
@@ -63,13 +68,13 @@ To say exitList:
 			if D is nothing or D is open or (D is simpleOpenable and the consciousness of the player is greater than 0) or (D is buttoned and the consciousness of the player is greater than one) or (D is locked and the consciousness of the player is greater than two):
 				if the way is:
 					-- west:
-						say "< ";
+						say "\u2190 ";
 					-- north:
-						say "^ ";
+						say "\u2191  ";
 					-- south:
-						say "v ";
+						say "\u2193 ";
 					-- east:
-						say "> ";
+						say "\u2192 ";
 
 Chapter 5 - Pinch hitting for French Module
 
@@ -96,7 +101,7 @@ Rule for listing nondescript items:
 			say " (contenant [a random thing in E])";
 		if the number of entries in L is greater than 2 and N is less than (the number of entries in L minus 1):
 			say ", ";
-	say "."
+	say ".[run paragraph on][line break]".
 	
 Rule for implicitly taking something (called the target):
 	try silently taking the target;
@@ -130,10 +135,11 @@ Palette is {"noir","brun","rouge","orange","jaune","vert","bleu","violet","gris"
 Chapter 8 - Start of Play
 
 When play begins:
-	[hide the prompt;]
+	hide the prompt;
 	place a block level element called "arrows";
 	sort the palette in random order;
-	increment the knownCommands of the player.
+	increment the knownCommands of the player;
+	listExits.
 
 
 Rule for printing the banner text: 
@@ -466,7 +472,7 @@ The frigo is a closed openable container in the Laboratoire de Pathologie. The f
 To say pnFrigo:
 	if the consciousness of the player is:
 		-- 2:
-			say "frigo";
+			say "frigo[if the frigo is closed] (fermé)[end if]";
 		-- 3:
 			say "congélo";
 		-- 4:
@@ -799,7 +805,6 @@ actionList is a list of text that varies. actionList is {"est", "ouest","manger"
 The commandList is a list of numbers that varies. The commandList is {}.
 
 To increment the knownCommands of the player:
-	place a block level element called "arrows";
 	remove all elements called "vorple-link";
 	increase the knownCommands of the player by 1;
 	add the knownCommands of the player to commandList;
@@ -823,7 +828,7 @@ After going west from Couloir 2 for the first time:
 	increment the knownCommands of the player.
 	
 After eating the petite créature grise:
-	say "[line break]De votre main, vous balayez aveuglément les recoins à la base du mur. Malgré votre manque de vitesse et de dextérité, par miracle vous réussissez à coincer le petit rongeur contre le mur. Vous vous empressez de le saisir fermement et sentez quelque chose de chaud, poilu, et maintenant, mouillé au fond de votre main. Sans y penser plus, vous le mangez précipitamment.[paragraph break]Après un petit moment, de nouvelles pensées vous frappent. Pris au dépourvu, vous frissonnez.[paragraph break][italic type]Au secours ! Un énorme monstre me poursuit ! Il va me manger ! il faut me dissimuler.[paragraph break]Je… euh.  Suis-je mort ou quoi ? Je ne comprends pas.[roman type].";
+	say "[line break]De votre main, vous balayez aveuglément les recoins à la base du mur. Malgré votre manque de vitesse et de dextérité, par miracle vous réussissez à coincer le petit rongeur contre le mur. Vous vous empressez de le saisir fermement et sentez quelque chose de chaud, poilu, et maintenant, mouillé au fond de votre main. Sans y penser plus, vous le mangez précipitamment.[paragraph break]Après un petit moment, de nouvelles pensées vous frappent. Pris au dépourvu, vous frissonnez.[paragraph break][italic type]Au secours ! Un énorme monstre me poursuit ! Il va me manger ! Il faut me dissimuler.[paragraph break]Je… euh.  Suis-je mort ou quoi ? Je ne comprends pas[roman type].";
 	increment the consciousness of the player.
 	
 After going east when the consciousness of the player is 1 for the first time:
@@ -852,7 +857,7 @@ After eating the chien:
 	increment the knownCommands of the player.
 	
 After eating the morceau de cerveau:
-	say "En mâchant la tranche de cerveau, vous sentez un saveur désagréable, mais ça s'estompe presque immédiatement.[paragraph break]Pendant quelques moments rien ne se passe et vous vous demandez si vous pouvez maintenant manger n'importe quoi en toute impunité.[paragraph break]Soudain, le monde passe du monochrome à la couleur vive. Une vague électrique parcourt votre esprit et vous vous effondrez, désorienté. Lorsque vous vous mettez debout, des nouvelles idées se mêlent à vos pensées et vous voyez tout sous un nouveau jour.";
+	say "[line break]En mâchant la tranche de cerveau, vous sentez un saveur désagréable, mais ça s'estompe presque immédiatement.[paragraph break]Pendant quelques moments rien ne se passe et vous vous demandez si vous pouvez maintenant manger n'importe quoi en toute impunité.[paragraph break]Soudain, le monde passe du monochrome à la couleur vive. Une vague électrique parcourt votre esprit et vous vous effondrez, désorienté. Lorsque vous vous mettez debout, des nouvelles idées se mêlent à vos pensées et vous voyez tout sous un nouveau jour.";
 	increment the consciousness of the player;
 	increment the knownCommands of the player.
 	
@@ -904,8 +909,8 @@ Every turn:
 						say "[italic type]« [entry 1 of EverybodyDialogue] »[roman type][paragraph break]";
 						remove entry 1 from EverybodyDialogue;
 	now the BlockChatterFlag is false;
-	clear all elements called "arrows";
-	display text "\u2190  \u2191  \u2193  \u2192" in the element called "arrows".
+	listExits.
+	
 	
 Section Mouse Dialogue
 

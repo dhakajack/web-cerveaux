@@ -4,10 +4,6 @@ Style sheet for test 4
 
 */
 
-.font-bold {
-	color:red;
-}
-
 a {
 	position: fixed;
 	left: 25px;
@@ -101,10 +97,15 @@ a {
 
 .arrows {
 	position: fixed;
-	top: 20px;
+	top: 50px;
 	left: 25px;
 	width: 100px;
 	text-align:center;
+	font-size: 20px;
+}
+
+.titre {
+	color:blue;
 	font-size: 20px;
 }
 
