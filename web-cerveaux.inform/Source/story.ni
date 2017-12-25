@@ -1,4 +1,4 @@
-"web-cerveaux" by Tana Ostrova
+"Faute De Servo" by Tana Ostrova
 
 The story headline is "Un voyageur sans esprit".
 The story genre is "horror".
@@ -18,10 +18,24 @@ Release along with style sheet "web-cerveaux.css".
 
 Release along with cover art, a file of "Blurb" called "description.txt" and a file of "walkthrough" called "fds_solution.txt".
 
+[********]
+debugMode is a truth state that varies. debugMode is FALSE.
+[*******]
+
 Chapter 1 - Override Vorple
+
+[To get around escaping of characters so I can use escaped unicode to render accented characters and symbols]
 
 To display text (content - text) in all the/-- elements called (classes - text):
 	execute JavaScript command "$('.[classes]').text('[content]')".
+	
+To place a/-- link to a/the/-- command (cmd - text) called (classes - text) reading (txt - text), without showing the command:
+	let silent be false;
+	if without showing the command:
+		now silent is true;
+	let id be unique identifier;
+	place "a" element called "vorple-link vorple-commandlink link-[id] [classes]" reading txt;
+	execute JavaScript command "$('a.link-[id]').attr('href', '#').attr('data-command', '[cmd]').attr('data-silent', '[silent]')".
 
 Chapter 2 - Block Dialogue
 
@@ -85,6 +99,8 @@ Understand "est" as east.
 Understand "ouest" as west.
 Understand "sud" as south.
 
+The indefinite article of doors is usually "une".
+
 Rule for listing nondescript items:
 	let L be a list of things;
 	say "Vous pouvez voir ";
@@ -101,7 +117,7 @@ Rule for listing nondescript items:
 			say " (contenant [a random thing in E])";
 		if the number of entries in L is greater than 2 and N is less than (the number of entries in L minus 1):
 			say ", ";
-	say ".[run paragraph on][line break]".
+	say "."
 	
 Rule for implicitly taking something (called the target):
 	try silently taking the target;
@@ -117,6 +133,12 @@ To say definiteArticle of (item - a thing):
 			say "s".
 
 The can't go that way rule response (A) is "Vous ne pouvez pas aller par là."
+
+Rule for printing the banner text: 
+	place an inline element called "titre" reading "[story title]";
+	say line break;
+	say "Un voyageur sans esprit par [story author][line break]";
+	say "Release 1 / Serial number 171225 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N)[line break]".
 
 Chapter 6 - Suppress Mention of Doors
 
@@ -135,18 +157,12 @@ Palette is {"noir","brun","rouge","orange","jaune","vert","bleu","violet","gris"
 Chapter 8 - Start of Play
 
 When play begins:
-	hide the prompt;
+	if debugMode is false:
+		hide the prompt;
 	place a block level element called "arrows";
 	sort the palette in random order;
 	increment the knownCommands of the player;
 	listExits.
-
-
-Rule for printing the banner text: 
-	place an inline element called "titre" reading "Faute de servo";
-	say line break;
-	say "Un voyageur sans esprit par Tana Ostrova[line break]";
-	say "Release 1 / Serial number 171225 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N)[line break]".
 
 After printing the banner text:
 	say "[line break][italic type]Où suis-je ? D'ailleurs… qui suis-je ?[roman type][paragraph break]Vous vous réveillez tout seul dans une pièce plutôt banale et bleuâtre.[paragraph break][italic type]Pourquoi je ne me souviens de rien ?[paragraph break]Je dois me concentrer ! Qu'est-ce qui s'est passé ?[paragraph break]En tout cas, la solution n'est pas ici -- il faut explorer un peu.".
@@ -480,7 +496,7 @@ To say pnFrigo:
 			
 After opening the frigo:
 	move the boîte en plastique to the location;
-	say "Vouz ouvrez le frigo et une boîte en plastique tombe au sol."
+	say "Vous ouvrez le frigo et une boîte en plastique tombe au sol."
 	
 
 The boîte en plastique is a closed openable container in the frigo. The boîte en plastique is closed. The indefinite article of the boîte en plastique is "une".
@@ -699,7 +715,7 @@ Carry out simpleOpening:
 	
 [this works here because things only contain a single item]
 After opening something (called the item):
-	say "Vouz ouvrez [definiteArticle of item] [item]";
+	say "Vous ouvrez [definiteArticle of item] [item]";
 	if the item contains exactly one thing:
 		say ", révélant [a random thing in item]";
 	say "."
@@ -766,7 +782,7 @@ Carry out simpleTalking:
 			-- 1:
 				say "Vous commencez à balbutier et la scientifique vous dévisage d'un regard inquisiteur.[paragraph break]« C'est possible ? demande-t-elle. Es-tu toujours capable de parler ?[line break]-- Oui, vous grognez au prix d'un grand effort. Moi... parle.[line break]-- Incroyable ! C'est un miracle, Julien. De quoi tu te souviens ?[paragraph break][italic type]-- Julien ? Qui est-ce ? demande Lucky.[line break]-- C'est pas moi, répond la voix minuscule de la souris. Peut-être que le nom appartient à notre ami, la tranche de cerveau ?[line break]-- Je ne m'en souviens pas, mais bon, je pourrais aussi bien être ce Julien.[roman type][paragraph break]-- Rien. Rien de tout. Julien… C'est moi ?[line break]-- Oui, Julien, c'est toi. Et moi, je suis ton Isabelle. Isabelle Rambaud, répond-elle d'un ton déçu. »[paragraph break]";
 			-- 2:
-				say "« [italic type]Elle a de jolis yeux (pour un géant), remarque la souris.[line break]-- Tais-toi, disent Lucky et la tranche de cerveau à l'unisson. »[roman type][paragraph break]Vous vous efforcez de former les mots les uns après les autres.[paragraph break]« Que faisons-nous ici ?[line break]-- Écoute, Julien. Je n'ai pas beaucoup de temps. Je suis chercheuse en médicine et tu es garde. Nous travaillions dans une installation consacrée à trouver un remède contre le virus Zombie777 qui a dévasté le monde entier.[line break]-- Un garde ?[line break]-- Oui. Fais attention, Julien, c'est important. Un foule d'individus infectés ont encerclé le laboratoire et tu me protégeais quand tu as été griffé. Pour éviter que tu ne deviennes un zombie, je t'ai administré le traitement expérimental.[line break]-- Alors, je suis guéri ?[line break]-- Loin de là, je dirais. »[paragraph break]";
+				say "« [italic type]Elle a de jolis yeux (pour un géant), remarque la souris.[line break]-- Tais-toi, disent Lucky et la tranche de cerveau à l'unisson. »[roman type][paragraph break]Vous vous efforcez de former les mots les uns après les autres.[paragraph break]« Que faisons-nous ici ?[line break]-- Écoute, Julien. Je n'ai pas beaucoup de temps. Je suis chercheuse en médecine et tu es garde. Nous travaillions dans une installation consacrée à trouver un remède contre le virus Zombie777 qui a dévasté le monde entier.[line break]-- Un garde ?[line break]-- Oui. Fais attention, Julien, c'est important. Un foule d'individus infectés ont encerclé le laboratoire et tu me protégeais quand tu as été griffé. Pour éviter que tu ne deviennes un zombie, je t'ai administré le traitement expérimental.[line break]-- Alors, je suis guéri ?[line break]-- Loin de là, je dirais. »[paragraph break]";
 			-- 3:
 				say "« Le traitement n'a pas marché ? demandez-vous.[line break]-- Pas entièrement, il me semble. J'ai eu un problème avec le système microfluidique de synthèse biomoléculaire qui a produit le traitement. Je crois qu'un composant a été omis dans la formule. J[apostrophe]étais en train de faire des réparations sur l'unité de synthèse quand tu m'a pris au dépourvu. Tu m'as attaquée, mais j'ai réussi à m'enfuir vers le sas. Et voilà où nous en sommes.[line break]-- Désolé.[line break]-- Ce n[apostrophe]était pas toi. Tu étais complètement transformé en zombie. Mais… comment se fait-il que tu puisse parler maintenant ? Les zombies n'en sont pas capables. »[paragraph break]";
 			-- 4:
@@ -800,7 +816,7 @@ To increment the consciousness of the player:
 
 Chapter 12 - Known Commands
 
-actionList is a list of text that varies. actionList is {"est", "ouest","manger","ouvrir","nord","sud","pousser","déverrouiller","parler","réparer"}
+actionList is a list of text that varies. actionList is {"est", "ouest","manger","ouvrir","nord","sud","pousser","d\u00E9verrouiller","parler","r\u00E9parer"}
 
 The commandList is a list of numbers that varies. The commandList is {}.
 
@@ -812,7 +828,7 @@ To increment the knownCommands of the player:
 	let R be the number of entries in commandList;
 	repeat with N running from 1 to R:
 		let E be entry N of commandList;
-		place a link to the command "[entry E of actionList]" called "box[n] [entry E of palette]" reading "b-[N]:[entry E of actionList]".
+		place a link to the command "[entry E of actionList]" called "box[n] [entry E of palette]" reading "[if debugMode is true]b-[N]:[entry E of actionList][end if]".
 				
 Chapter 13 - Milestones
 
@@ -1053,11 +1069,11 @@ Instead of touching the servomoteur:
 Chapter 16 - End Game
 
 To terminate the game:
-	[kill the buttons]
+	remove all elements called "vorple-link";
 	say "[VictoryText]".
 		
 To say VictoryText:
-	say "[paragraph break][bold type]        *** VOUS AVEZ GAGNÉ ***[roman type][paragraph break]Vous avez sauvé le monde du fléau du virus zombie777.[paragraph break][bold type]>infos[roman type][line break]Ce jeu participe au Concours Francophone de Fictions Interactives (2017). Il a été écrit en Inform 7.[paragraph break][bold type]>remerciements[roman type][paragraph break]Je voudrais remercier :[paragraph break]* Les organisateurs du concours.[paragraph break]* Graham Nelson pour avoir conçu et écrit Inform 7.[paragraph break]* Juhana Leinonen pour l'extension [quotation mark]Vorple[quotation mark].[paragraph break]* Ben Collins-Sussman, qui a peint la couverture à l'aquarelle.[paragraph break]* Relecteurs: Éric Forgeot et Stéphane Flauder.[paragraph break]* Beta-testeurs: Brian Rushton et Denise Jobin.[paragraph break][bold type]FIN."
+	say "[paragraph break][bold type]        *** VOUS AVEZ GAGNÉ ***[roman type][paragraph break]Vous avez sauvé le monde du fléau du virus zombie777.[paragraph break][bold type]>infos[roman type][line break]Ce jeu participe au Concours Francophone de Fictions Interactives (2017). Il a été écrit en Inform 7.[paragraph break][bold type]>remerciements[roman type][paragraph break]Je voudrais remercier :[paragraph break]* Les organisateurs du concours.[line break]* Graham Nelson pour avoir conçu et écrit Inform 7.[line break]* Juhana Leinonen pour l'extension [quotation mark]Vorple[quotation mark].[line break]* Ben Collins-Sussman, qui a peint la couverture à l'aquarelle.[line break]* Relecteurs: Éric Forgeot et Stéphane Flauder.[line break]* Beta-testeurs: Léon Devries, Brian Rushton et Denise Jobin.[paragraph break][bold type]FIN."
 	
 Chapter 17 - Testing
 
