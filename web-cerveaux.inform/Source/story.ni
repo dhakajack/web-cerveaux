@@ -16,7 +16,7 @@ Use no scoring.
 Release along with the "Vorple" interpreter.
 Release along with style sheet "web-cerveaux.css".
 
-Release along with cover art, a file of "Blurb" called "description.txt" and a file of "walkthrough" called "fds_solution.txt".
+Release along with cover art, a file of "Blurb" called "description.txt" and a file of "walkthrough" called "fds_solution_web.txt".
 
 [********]
 debugMode is a truth state that varies. debugMode is FALSE.
