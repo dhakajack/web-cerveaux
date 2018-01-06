@@ -109,6 +109,10 @@ a {
 	font-size: 20px;
 }
 
+.prompt-input {
+	color:#0A0;
+}
+
 #output {
 	margin: 0 0 0 150px;
 }
