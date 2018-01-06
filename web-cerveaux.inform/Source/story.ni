@@ -16,7 +16,7 @@ Use no scoring.
 Release along with the "Vorple" interpreter.
 Release along with style sheet "web-cerveaux.css".
 
-Release along with cover art, a file of "Blurb" called "description.txt" and a file of "walkthrough" called "fds_solution_web.txt".
+Release along with cover art, a file of "Description" called "description.txt" and a file of "Solution" called "fds_solution_web.txt".
 
 [********]
 debugMode is a truth state that varies. debugMode is FALSE.
@@ -208,7 +208,7 @@ To say descBlocOperatoire:
 		-- 0:
 			say "Une pièce sombre[one of]. Rien d'intéressant ici[or][stopping]";
 		-- 1:
-			say "Il y a peu de sang ici -- une grande pièce bleue avec les murs métalliques";
+			say "Il y a un peu de sang ici -- une grande pièce bleue avec des murs métalliques";
 		-- 2:
 			say "La salle bleue où les humains coupent les animaux et enlèvent leurs tripes";
 		-- 3:
@@ -280,7 +280,7 @@ Laboratoire Zoologique is a room. The description of Laboratoire Zoologique is "
 To say descLabZoo:
 	if the consciousness of the player is:
 		-- 1:
-			say "De sa cage le loup méchant vous dévisage constamment";
+			say "Depuis sa cage le loup méchant vous dévisage constamment";
 		-- 2:
 			say "La pièce dans laquelle ils vous avaient appris à appuyer sur le bouton rouge du distributeur de friandises";
 		-- 3:
@@ -841,11 +841,11 @@ After going east for the first time:
 After going west from Couloir 2 for the first time:
 	move the petite créature grise to the Bloc Opératoire;
 	try looking;
-	say "Elle se cache dans les ombres, tremblant.";
+	say "Elle se cache dans l'obscurité, tremblante.";
 	increment the knownCommands of the player.
 	
 After eating the petite créature grise:
-	say "[line break]De votre main, vous balayez aveuglément les recoins à la base du mur. Malgré votre manque de vitesse et de dextérité, par miracle vous réussissez à coincer le petit rongeur contre le mur. Vous vous empressez de le saisir fermement et sentez quelque chose de chaud, poilu, et maintenant, mouillé au fond de votre main. Sans y penser plus, vous le mangez précipitamment.[paragraph break]Après un petit moment, de nouvelles pensées vous frappent. Pris au dépourvu, vous frissonnez.[paragraph break][italic type]Au secours ! Un énorme monstre me poursuit ! Il va me manger ! Il faut me dissimuler.[paragraph break]Je… euh.  Suis-je mort ou quoi ? Je ne comprends pas[roman type].";
+	say "[line break]De votre main, vous balayez aveuglément les recoins à la base du mur. Malgré votre manque de vitesse et de dextérité, par miracle vous réussissez à coincer le petit rongeur contre le mur. Vous vous empressez de le saisir fermement et sentez quelque chose de chaud, poilu, et maintenant, mouillé dans la paume de votre main. Sans y penser plus, vous le mangez précipitamment.[paragraph break]Après un petit moment, de nouvelles pensées vous frappent. Pris au dépourvu, vous frissonnez.[paragraph break][italic type]Au secours ! Un énorme monstre me poursuit ! Il va me manger ! Il faut me dissimuler.[paragraph break]Je… euh.  Suis-je mort ou quoi ? Je ne comprends pas[roman type].";
 	increment the consciousness of the player.
 	
 After going east when the consciousness of the player is 1 for the first time:
@@ -875,6 +875,8 @@ After eating the chien:
 	
 After eating the morceau de cerveau:
 	say "[line break]En mâchant la tranche de cerveau, vous sentez un saveur désagréable, mais ça s'estompe presque immédiatement.[paragraph break]Pendant quelques moments rien ne se passe et vous vous demandez si vous pouvez maintenant manger n'importe quoi en toute impunité.[paragraph break]Soudain, le monde passe du monochrome à la couleur vive. Une vague électrique parcourt votre esprit et vous vous effondrez, désorienté. Lorsque vous vous mettez debout, des nouvelles idées se mêlent à vos pensées et vous voyez tout sous un nouveau jour.";
+	now the potty is plural-named;
+	now indefinite article of the potty is "des";
 	increment the consciousness of the player;
 	increment the knownCommands of the player.
 	
@@ -939,7 +941,7 @@ mouseDialogue is {
 "Voyons, quel sont mes envies habituelles ?",
 "Dormir ? Non. Boire ? Non. Faire l'amour ? Non.[paragraph break]Mes Dieux ! Non ? Est-ce que je suis malade ?",
 "Eh bien, j'ai faim.",
-"De quoi est-ce que j'ai envie de manger ? Cela m[apostrophe]échappe pour le moment.",
+"Qu'est-ce que j'ai envie de manger ? Cela m[apostrophe]échappe pour le moment.",
 "Du fromage ? Non, pas vraiment.",
 "Je cherche quelque chose plus moelleux, plus juteux.",
 "Je le saurai quand je le verrai, je suppose."
@@ -950,13 +952,13 @@ Section MouseDog Dialogue
 mouseDogDialogue is a list of text that varies. 
 
 mouseDogDialogue is {
-"Désolé[line break]-- Quoi, désolé ?[line break]-- Moi, je suis désolé de t'avoir mangé.[line break]-- De m'avoir mangé ? Dis donc, qui es-tu ?[line break]-- La souris.",
-"La souris ? Quelle souris ?[line break]-- La souris qui habite ici.[line break]-- La maudite souris qui vole toujours les bribes autour de mon distributeur ?[line break]-- Ouais, la même. Une fois de plus, je suis désolé de t'avoir dérangé.",
+"Désolé.[line break]-- Quoi, désolé ?[line break]-- Moi, je suis désolé de t'avoir mangé.[line break]-- De m'avoir mangé ? Dis donc, qui es-tu ?[line break]-- La souris.",
+"La souris ? Quelle souris ?[line break]-- La souris qui habite ici.[line break]-- La maudite souris qui vole toujours les restes autour de mon distributeur ?[line break]-- Ouais, la même. Une fois de plus, je suis désolé de t'avoir dérangé.",
 "Pas du tout. J'aurais fait pareil.[line break]-- Bon, merci.[line break]-- Dis, souris, as-tu un nom ?[line break]-- Non. Nous les souris n'avons pas de noms. Tu peux m'appeler simplement [quotation mark]Souris[quotation mark]. Et toi ? Comment tu t'appelles ?[line break]-- [quotation mark]Lucky[quotation mark]. C'est le nom que ma famille m'a donné avant que je sois arrivé ici. Les bourreaux me désignent [quotation mark]Sujet 205-Alpha[quotation mark], mais je préfère [quotation mark]Lucky[quotation mark].[line break]-- D'accord, Lucky.",
 "Souris, peux-tu m'expliquer quelque chose ? Je suis toujours perplexe. Comment se fait-il que toi, une souris, un animal tout petit, puisse manger un chien comme moi, de plusieurs fois ta taille ?[line break]-- Je me suis demandé la même chose. Tiens -- t'es un chien ? Je pensais que tu étais un loup ![line break]-- Non, un chien.[line break]-- Ah bon ?[line break]-- Oui. J'en suis certain.",
 "Je n'arrive pas à comprendre exactement comment j'ai réussi à vous manger.[line break]-- Est-ce que tu te rappelles de l[apostrophe]événement ?[line break]-- J[apostrophe]étais pris d'une folle envie de cerveaux.[line break]-- Quel cerveau ?[line break]-- Dans ce cas, le tien.[line break]-- Ah, je vois… euh, non, pas vraiment.",
-"As-tu toujours vécu ici, Souris ?[line break]-- Plusieurs générations de ma famille ont vécu ici, c'est notre propriété héréditaire. On la défend contre les envahisseurs, les souris des campagnes qui ne sont que des abruties et des voleuses.[line break]-- As-tu jamais vu le monde en dehors d'ici ?[line break]-- Je n'en ai pas envie. J'ai entendu des contes, bien sûr : le ciel, les nuages, les champs, mais rien de tout cela ne m'intéresse.",
-"Et toi, Lucky ? Tu as mentionné une famille ? As-tu une femme (nous les souris ne croyons pas au mariage, mais j'ai entendu que les chiens sont plus traditionnels).[line break]-- Une famille, oui, mais pas de femme (bien qu'il y avait un caniche à côté… euh, mais c'est une autre histoire). Non, lorsque je parle de famille, il s'agit d'une famille humaine.",
+"As-tu toujours vécu ici, Souris ?[line break]-- Plusieurs générations de ma famille ont vécu ici, c'est le domaine familial. On la défend contre les envahisseurs, les souris des campagnes qui ne sont que des abruties et des voleuses.[line break]-- As-tu jamais vu le monde en dehors d'ici ?[line break]-- Je n'en ai pas envie. J'ai entendu des contes, bien sûr : le ciel, les nuages, les champs, mais rien de tout cela ne m'intéresse.",
+"Et toi, Lucky ? Tu as mentionné une famille ? As-tu une femme (nous les souris ne croyons pas au mariage, mais j'ai entendu que les chiens sont plus traditionnels).[line break]-- Une famille, oui, mais pas de femme... bien qu'il y avait un caniche, mais rien de sérieux… euh, mais c'est une autre histoire. Non, lorsque je parle de famille, il s'agit d'une famille humaine.",
 "Tu étais leur esclave ? demande la souris.[line break]-- Non, ce n[apostrophe]était pas comme ça. J'ai joué avec les enfants, ils m'ont donné de la nourriture, ils m'ont caressé toute la journée, et j'avais même mon propre lit.[line break]-- Tu rêves. Je n'ai jamais rien vu de pareil. Les humains n'aiment pas les animaux. Ils essaient toujours de nous écraser sous leurs semelles !",
 "Bah, tu ne connais que peu d'humains, réfute Lucky.[line break]-- Je n'ai aucune envie de les connaître de plus près.[line break]-- Tu aurais aimé ma famille.[line break]-- Alors, pourquoi as-tu quitté cette famille si remarquable ?[line break]-- Pas par choix. Nous étions dans une forêt, j'ai vu un écureuil, et je me suis perdu.[line break]-- Ne me parles pas d[apostrophe]écureuils. Ils sont pire que les souris sauvages !",
 "Lucky, penses-tu que tu retrouveras un jour ta famille ?[line break]-- Je l'espère.[line break]-- Moi aussi. Je veux chasser les écureuils avec toi.[line break]-- Ça serait génial."
@@ -972,7 +974,7 @@ mouseDogGuardDialogue is {
 "Si je puis poser une question, demande la souris, qui es-tu ?[line break]-- Mon nom est… euh… voyons… un instant… bonne question. En effet, je ne me souviens pas. Le nom m[apostrophe]échappe pour l'instant. Que proposerais-tu ?[line break]-- Appelons-le [quotation mark]La petite tranche de cerveau que nous avons trouvée dans le frigo et dont la saveur était un peu avariée[quotation mark], conseille le chien.[line break]-- Non, c'est vraiment trop long. Disons plutôt simplement [quotation mark]la tranche de cerveau[quotation mark]. Est-ce que ça te convient ?[line break]-- Oui, dit la tranche de cerveau, de toute manière, j'ai une préférence pour les noms courts.", 
 "Avez-vous des noms ? questionne la tranche de cerveau.[line break]-- Oui, répond le chien. Pardonne notre manque de politesse. Je m'appelle Lucky et mon amie la souris est tout simplement appelée [quotation mark]Souris[quotation mark].[line break]-- C'est exact, confirme la souris.[line break]-- C'est un plaisir de faire votre connaissance, mes nouveaux amis.", 
 "Alors, tranche de cerveau, je me demande quelle sorte d'animal tu étais avant d'arriver ici. J[apostrophe]étais un chien et la souris a toujours été une souris.[line break]-- J[apostrophe]étais quelque chose d'autre qu'une tranche de cerveau auparavant ?[line break]-- Il me semble que tu étais un frigo, suggère la souris. J'ai mangé le cerveau d'un chien est Lucky est apparu. Puis nous avons ouvert et mangé un frigo et tu es apparu.[line break]-- Je ne crois pas que ça fonctionne comme ça, murmure Lucky.", 
-"Quand tu es arrivé, tu as dit qu'il fallait [quotation mark]sécuriser l'installation[quotation mark]. Qu'est-ce que ça veut dire ? demande Lucky. [line break]-- Cela signifie que nous devons regarder autour de l'installation pour la protéger contre toute menace. [line break] -- OK, dit la souris en essayant de suivre la conversation, mais c'est quoi une installation ? [line break] -- C'est le complexe des ... euh ... c'est un endroit où ... tout le monde travaille pour ... euh. Voilà où nous en sommes, conclut la tranche de cerveau.", 
+"Quand tu es arrivé, tu as dit qu'il fallait [quotation mark]sécuriser l'installation[quotation mark]. Qu'est-ce que ça veut dire ? demande Lucky. [line break]-- Cela signifie que nous devons regarder autour de l'installation pour la protéger contre toute menace.[line break] -- OK, dit la souris en essayant de suivre la conversation, mais c'est quoi une installation ? [line break] -- C'est le complexe des ... euh ... c'est un endroit où ... tout le monde travaille pour ... euh. Voilà où nous en sommes, conclut la tranche de cerveau.", 
 "De quelle menace parles-tu ? demande la souris[line break]-- Franchement, je ne sais pas, répond la tranche de cerveau. Encore, je ne me souviens pas. Mais il y en a beaucoup, j'en suis certain.[line break]-- Tu as l'air parano, dit le chien.[line break]-- Peut-être que si j'avais mes souvenirs, je pourrais… non. Ils sont perdus.", 
 "Peut-être qu'il y a un moyen de récupérer vos souvenirs, suggère Lucky.[line break]-- Comment ? J'ai beaucoup essayé et rien ne me vient à l'esprit.[line break]-- Probablement parce tu n'es qu'une petite tranche de cerveau, suppose la souris.  Si nous pouvons trouver le reste du cerveau, qui doit être ici quelque part, nous pourrions le manger pour obtenir les souvenirs manquants, non ?[line break]-- Hein ? Tu penses ? questionne la tranche de cerveau.[line break]-- Oui, certainement, rassure le chien.", 
 "Et si le reste du cerveau nous trouve avant que nous le trouvions ? demande la souris.[line break]-- Et alors ? dit Lucky.[line break]-- Le reste de cerveau peut nous manger plutôt que nous le mangions, répond la souris.[line break]-- Ça changera quoi, exactement ? demande la tranche de cerveau. Nous serons tous ensemble en tout cas.[line break]-- Oui. Mais. D'habitude je préfère manger les autres avant qu'ils me mangent.", 
@@ -1003,7 +1005,7 @@ EverybodyDialogue is { "Quelle sensation incroyable ! délire la scientifique.[l
 "Et quant aux animaux ? demande la souris. Étaient-ils touchés ?[line break]-- En fait, répond Isabelle, nous pensons que la maladie est d'origine canine. Avant la perte de communications avec l'Institut Pasteur à Hô-Chi-Minh-Ville, ils ont isolé une souche mutante de la rage qui a déclenché la pandémie.[line break]-- La rage ! dit Lucky, frappé de terreur. Il n'y a rien de plus terrifiant ![line break]-- Jusqu[apostrophe]à présent, précise la tranche de cerveau.",
 "Si le zombisme s'est propagé si vite, s'inquiète Lucky, penses-tu que ma famille ait survécu ?[line break]-- Oui, je le sais, rassure la scientifique. Les Drummonds travaillent ici, dans l'installation et tous les travailleurs sont hébergés dans l'enceinte. Tu n'es pas loin d'eux. [line break]-- Génial ! dit le chien.", 
 "Isabelle, dit la souris, si le remède fonctionne comme prévu, que deviendrons-nous ?[line break]-- Dans quel sens ?[line break]-- Est-ce que nous restons les individus avec nos propres pensées, ou crois-tu que nous allons fusionner dans une seul esprit ?[line break]-- Impossible à prédire. Jusqu[apostrophe]à maintenant, nous avons mené des vies individuelles. Tu as tes souvenirs et j'ai les miens, mais à l'avenir nous allons vivre les mêmes événements du même point de vue. Nous partagerons un seul corps et c'est possible que nous devenions un seul esprit après un certain temps.", 
-"Je n'ai jamais souhaité être autre chose qu'une souris. Je trouve cela terrifiant, que mon esprit puisse être dilué.[line break]-- Mais vois les avantages, dit Lucky. Regarde dans mes pensées -- voici comment je me sens en chassant un écureuil. Et voici la sensation d[apostrophe]être gratté entre les oreilles.[line break]-- Oui, je suppose.[line break]-- Et ici, dit la scientifique, je te montre la Terre vue depuis l'espace -- quelque chose qu'aucune souris n'a jamais vu.[line break]-- Heu. C'est impressionnant. Et je suppose que de mon coté j'ai quelque souvenirs à partager aussi : le chaleur de dormir avec les autres souris, la joie de voler les bribes du distributeur de Lucky…[line break]-- Hé ! hurle le chien.", 
+"Je n'ai jamais souhaité être autre chose qu'une souris. Je trouve cela terrifiant, que mon esprit puisse être dilué.[line break]-- Mais vois les avantages, dit Lucky. Regarde dans mes pensées -- voici comment je me sens en chassant un écureuil. Et voici la sensation d[apostrophe]être gratté entre les oreilles.[line break]-- Oui, je suppose.[line break]-- Et ici, dit la scientifique, je te montre la Terre vue depuis l'espace -- quelque chose qu'aucune souris n'a jamais vu.[line break]-- Heu. C'est impressionnant. Et je suppose que de mon coté j'ai quelque souvenirs à partager aussi : le chaleur de dormir avec les autres souris, la joie de voler les restes du distributeur de Lucky…[line break]-- Hé ! hurle le chien.", 
 "Quand j'ai vu le corps de Julien entrer dans le sas, j'ai remarqué qu'il se déplaçait avec difficulté, marchant lentement et trébuchant, dit la scientifique.[line break]-- Oui, je sais comment marcher, dit la tranche de cerveau, mais je le trouve désespérément difficile de le mettre en pratique.[line break]-- La souris n'aide pas, commente Lucky. Il bouge toujours les jambes.[line break]-- Moi ? dit le souris avec indignation. C'est toi qui veut toujours aller à quatre pattes.[line break]-- OK, dit la scientifique, puis-je vous convaincre qu'une seule personne doit pilote le corps à la fois ?[line break]-- Oui, certainement, acquiesce la tranche de cerveau. Le volant est à toi.", 
 "D'accord, dit la scientifique. Je m'empresse de faire ce qu'il faut pour obtenir le remède.[line break]-- Bon. Assez de papotage mes amis, laissez-la se concentrer, conseille la tranche de cerveau.[line break]-- Oui, d'accord, disent le chien et la souris."
 }
