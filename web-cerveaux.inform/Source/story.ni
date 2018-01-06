@@ -141,7 +141,7 @@ Rule for printing the banner text:
 	place an inline element called "titre" reading "[story title]";
 	say line break;
 	say "[story headline] par [story author][line break]";
-	say "Release [release number] / Serial number 171225 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N)[line break]".
+	say "Release [release number] / Serial number 180106 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N)[line break]".
 
 Chapter 6 - Suppress Mention of Doors
 
@@ -672,7 +672,7 @@ Instead of going north when the player is in the sas:
 			
 Before eating scientifique when the conversations of scientifique are less than 5:
 	now the BlockChatterFlag is true;
-	say "[one of]La scientifique vous repousse avec son pied-de-biche. Une fois hors de portée de votre bouche menaçante, elle appuie sur un bouton de l[apostrophe]interphone et dit[unicode 160]:[unicode 160]«[unicode 160]Attention[unicode 160]:[unicode 160]salle de contrôle. Ici docteur Rambaud, dans le sas. Julien est ici avec moi. Malheureusement, je dois vous signaler que l'expérience a raté.  Ne déverrouillez en aucun cas la porte extérieure.[no line break][unicode 160]»[paragraph break][or]Le docteur Rambaud ne bouge pas de sa position derrière le bureau, mais lorsque vous l'approchez, elle lance une série de coups avec son pied-de-biche qui vous fait reconsidérer votre action.[or]La scientifique vous confie[unicode 160]:[unicode 160]«[unicode 160]Je vous fais crédit de votre persévérance, néanmoins…[unicode 160]» et elle vous frappe carrément au nez. Ébranlé, vous trébuchez un peu et vous hâtez de reculer.[or]Le docteur Rambaud vous bat avec le pied-de-biche à plusieurs reprises.[stopping]";
+	say "[one of]La scientifique vous repousse avec son pied-de-biche. Une fois hors de portée de votre bouche menaçante, elle appuie sur un bouton de l[apostrophe]interphone et dit[unicode 160]:[unicode 160]«[unicode 160]Attention[unicode 160]:[unicode 160]salle de contrôle. Ici docteur Rambaud, dans le sas. Julien est ici avec moi. Malheureusement, je dois vous signaler que l'expérience a raté.  Ne déverrouillez en aucun cas la porte extérieure.[no line break][unicode 160]»[line break][or]Le docteur Rambaud ne bouge pas de sa position derrière le bureau, mais lorsque vous l'approchez, elle lance une série de coups avec son pied-de-biche qui vous fait reconsidérer votre action.[or]La scientifique vous confie[unicode 160]:[unicode 160]«[unicode 160]Je vous fais crédit de votre persévérance, néanmoins…[unicode 160]» et elle vous frappe carrément au nez. Ébranlé, vous trébuchez un peu et vous hâtez de reculer.[or]Le docteur Rambaud vous bat avec le pied-de-biche à plusieurs reprises.[stopping]";
 	stop the action.
 	
 
@@ -777,7 +777,7 @@ Carry out simpleTalking:
 				-- 1:
 					say "«[unicode 160]Salle de contrôle, Professeur Drummond à l'appareil.[line break]-- C'est ton chien, Lucky[unicode 160]! Je suis ici dans le sas[unicode 160]! Je suis tellement heureux de t'entendre[unicode 160]![line break]-- Euh… est-ce que vous vous moquez de moi[unicode 160]? L'interphone n'est que pour les communications officielles. Qui est-ce[unicode 160]?[paragraph break][italic type]-- C'est lui[unicode 160]! C'est le père de ma famille, dit Lucky.[line break]-- Calme toi, Lucky, insiste la scientifique. Laisse Julien prendre le micro.[roman type][paragraph break]-- Excusez-moi, dit Julien. Je peux tout expliquer. Je suis Julien Truffaut.[line break]-- Le garde[unicode 160]?[line break]-- Oui.[line break]-- Impossible. Le docteur Rambaud a dit qu'il était devenu un zombie. Les zombies ne peuvent pas parler. Je n'ai pas de temps pour ces conneries.[no line break][unicode 160]»[paragraph break]";
 				-- 2:
-					say "«[unicode 160]Je ne plaisante pas, dit Julien. Le docteur Rambaud m'a guéri.[line break]-- Assez, répond le professeur. Si elle est là, donnez-lui la parole.[line break]-- Elle est… occupée… en ce moment[unicode 160]». Pendant que vous parlez, vous traînez le corps inerte de la scientifique vers l'escalier.[paragraph break]«[unicode 160]Dites donc, continuez-vous, si vous méfiez de moi, activez la caméra de surveillance dans le sas. Vous me verrez.[line break]-- Attendez.0[no line break][unicode 160]»[paragraph break]";
+					say "«[unicode 160]Je ne plaisante pas, dit Julien. Le docteur Rambaud m'a guéri.[line break]-- Assez, répond le professeur. Si elle est là, donnez-lui la parole.[line break]-- Elle est… occupée… en ce moment[unicode 160]». Pendant que vous parlez, vous traînez le corps inerte de la scientifique vers l'escalier.[paragraph break]«[unicode 160]Dites donc, continuez-vous, si vous méfiez de moi, activez la caméra de surveillance dans le sas. Vous me verrez.[line break]-- Attendez.[no line break][unicode 160]»[paragraph break]";
 				-- 3:
 					say "«[unicode 160]Me voyez-vous[unicode 160]? vous demandez.[line break]-- Oui. Mais comment se fait-il que vous êtes toujours en vie[unicode 160]? J'ai pensé que vous étiez infecté par le virus.[line break]-- Oui, vous avez raison, comme je vous l[apostrophe]ai dit…[paragraph break][italic type]-- Laisse-moi expliquer, dit le scientifique.[roman type][paragraph break]-- Le docteur Rambaud a préparé un remède efficace utilisant le système microfluidique de biosynthèse suivant le protocol [quotation mark]M13[quotation mark] dont elle a discuté avec vous auparavant. Mes voies neuronales ont été restaurées et je suis guéri de l'infection.[line break]-- Ouah. C[apostrophe]est peut-être la fin de la pandémie.[line break]-- Oui. Certainement[unicode 160]![no line break][unicode 160]»[paragraph break]";
 				-- 4: 
@@ -790,7 +790,7 @@ Carry out simpleTalking:
 			-- 1:
 				say "Vous commencez à balbutier et la scientifique vous dévisage d'un regard inquisiteur.[paragraph break]«[unicode 160]C'est possible[unicode 160]? demande-t-elle. Es-tu toujours capable de parler[unicode 160]?[line break]-- Oui, vous grognez au prix d'un grand effort. Moi... parle.[line break]-- Incroyable[unicode 160]! C'est un miracle, Julien. De quoi tu te souviens[unicode 160]?[paragraph break][italic type]-- Julien[unicode 160]? Qui est-ce[unicode 160]? demande Lucky.[line break]-- C'est pas moi, répond la voix minuscule de la souris. Peut-être que le nom appartient à notre ami, la tranche de cerveau[unicode 160]?[line break]-- Je ne m'en souviens pas, mais bon, je pourrais aussi bien être ce Julien.[roman type][paragraph break]-- Rien. Rien du tout. Julien… C'est moi[unicode 160]?[line break]-- Oui, Julien, c'est toi. Et moi, je suis ton Isabelle. Isabelle Rambaud, répond-elle d'un ton déçu.[no line break][unicode 160]»[paragraph break]";
 			-- 2:
-				say "«[unicode 160][italic type]Elle a de jolis yeux (pour un géant), remarque la souris.[line break]-- Tais-toi, disent Lucky et la tranche de cerveau à l'unisson.[unicode 160]»[roman type][paragraph break]Vous vous efforcez de former les mots les uns après les autres.[paragraph break]«[unicode 160]Que faisons-nous ici[unicode 160]?[line break]-- Écoute, Julien. Je n'ai pas beaucoup de temps. Je suis chercheuse en médecine et tu es garde. Nous travaillions dans une installation consacrée à trouver un remède contre le virus Zombie777 qui a dévasté le monde entier.[line break]-- Un garde[unicode 160]?[line break]-- Oui. Fais attention, Julien, c'est important. Un foule d'individus infectés ont encerclé le laboratoire et tu me protégeais quand tu as été griffé. Pour éviter que tu ne deviennes un zombie, je t'ai administré le traitement expérimental.[line break]-- Alors, je suis guéri[unicode 160]?[line break]-- Loin de là, je dirais.[no line break][unicode 160]»[paragraph break]";
+				say "«[unicode 160][italic type]Elle a de jolis yeux (pour un géant), remarque la souris.[line break]-- Tais-toi, disent Lucky et la tranche de cerveau à l'unisson.[no line break][unicode 160]»[roman type][paragraph break]Vous vous efforcez de former les mots les uns après les autres.[paragraph break]«[unicode 160]Que faisons-nous ici[unicode 160]?[line break]-- Écoute, Julien. Je n'ai pas beaucoup de temps. Je suis chercheuse en médecine et tu es garde. Nous travaillions dans une installation consacrée à trouver un remède contre le virus Zombie777 qui a dévasté le monde entier.[line break]-- Un garde[unicode 160]?[line break]-- Oui. Fais attention, Julien, c'est important. Un foule d'individus infectés ont encerclé le laboratoire et tu me protégeais quand tu as été griffé. Pour éviter que tu ne deviennes un zombie, je t'ai administré le traitement expérimental.[line break]-- Alors, je suis guéri[unicode 160]?[line break]-- Loin de là, je dirais.[no line break][unicode 160]»[paragraph break]";
 			-- 3:
 				say "«[unicode 160]Le traitement n'a pas marché[unicode 160]? demandez-vous.[line break]-- Pas entièrement, il me semble. J'ai eu un problème avec le système microfluidique de synthèse biomoléculaire qui a produit le traitement. Je crois qu'un composant a été omis dans la formule. J[apostrophe]étais en train de faire des réparations sur l'unité de synthèse quand tu m'a pris au dépourvu. Tu m'as attaquée, mais j'ai réussi à m'enfuir vers le sas. Et voilà où nous en sommes.[line break]-- Désolé.[line break]-- Tu n[apostrophe]étais pas toi-même. Tu étais complètement transformé en zombie. Mais… comment se fait-il que tu puisses parler maintenant[unicode 160]? Les zombies n'en sont pas capables.[no line break][unicode 160]»[paragraph break]";
 			-- 4:
@@ -858,7 +858,7 @@ After eating the petite créature grise:
 After going east when the consciousness of the player is 1 for the first time:
 	try looking;
 	now the BlockChatterFlag is true;
-	say "[italic type]Ah, le grand couloir blanc.[paragraph break]Combien de fois est-ce que j'ai vu les géants marcher à travers les murs lisses pour entrer dans les pièces secrètes[unicode 160]? Comment le font-ils[unicode 160]?[roman type][paragraph break]";
+	say "[italic type]Ah, le grand couloir blanc.[paragraph break]Combien de fois est-ce que j'ai vu les géants marcher à travers les murs lisses pour entrer dans les pièces secrètes[unicode 160]? Comment le font-ils[unicode 160]?[no line break][roman type][line break]";
 	increment the knownCommands of the player.
 	
 After opening the labZooDoor:
@@ -866,8 +866,9 @@ After opening the labZooDoor:
 	increment the knownCommands of the player.
 	
 After going north from Couloir 2 for the first time:
-	say "Vous pénétrez dans la tanière du loup, un endroit bien connu mais toujours effrayant. Comme d'habitude le loup est emprisonné dans sa cage et vous êtes libre d'explorer, hors de portée de ses mâchoires baveuses.";
+	say "Vous pénétrez dans la tanière du loup, un endroit bien connu mais toujours effrayant.";
 	try looking;
+	say "Comme d'habitude le loup est emprisonné dans sa cage et vous êtes libre d'explorer, hors de portée de ses mâchoires baveuses.";
 	increment the knownCommands of the Player.
 	
 After opening the cage:
@@ -878,6 +879,8 @@ After eating the chien:
 	now the corps de chien is in the cage;
 	say "[line break]D'instinct, vous dévorez son cerveau et jetez le corps dans la cage. Encore une fois, de nouvelles pensées envahissent votre esprit.[paragraph break][italic type]Je vous préviens[unicode 160]:[unicode 160]si vous approchez de ma cage, je vous mordrai. Arrêtez[unicode 160]! Sans blague… [paragraph break]Mais, qu'est-ce qui se passe[unicode 160]? Qui est ce chien mort dans ma cage… dont le sang coule sur mon coussin préféré[unicode 160]?[paragraph break]Et pourquoi est-ce que je me tiens debout sur deux jambes à la façon des êtres humains[unicode 160]? C'est en fait plus facile que j'aurais pensé.";
 	increment the consciousness of the player;
+	now the BlockChatterFlag is true;
+	say "[italic type]«[unicode 160]Désolé.[line break]-- Quoi, désolé[unicode 160]?[line break]-- Moi, je suis désolé de t'avoir mangé.[line break]-- De m'avoir mangé[unicode 160]? Dis donc, qui es-tu[unicode 160]?[line break]-- La souris.[no line break][unicode 160]»[roman type][line break]";
 	increment the knownCommands of the player.
 	
 After eating the morceau de cerveau:
@@ -885,17 +888,20 @@ After eating the morceau de cerveau:
 	now the potty is plural-named;
 	now indefinite article of the potty is "des";
 	increment the consciousness of the player;
+	now the BlockChatterFlag is true;
+	say "[italic type]«[unicode 160] Il faut patrouiller[unicode 160]! ordonne une nouvelle voix.[line break]-- Patrouiller[unicode 160]? Qu'est que ça veut dire[unicode 160]? demande la souris.[line break]-- Cela signifie marcher partout, pour sécuriser l'installation, répond la voix.[line break]-- J'aime bien faire des promenades[unicode 160]! dit Lucky tout excité.[no line break][unicode 160]»[roman type][line break]";
 	increment the knownCommands of the player.
 	
-After going north from Escalier 2 when the sasDoor is not locked for the first time:
+After going north from Escalier 2 when the sasDoor is not closed for the first time:
 	now the BlockChatterFlag is true;
 	say "Une femme d'une quarantaine d'années vêtue d'une blouse blanche est assise derrière un bureau en métal. Elle est à mi-chemin entre vous et la porte à l'autre bout de la pièce. Elle semble gravement blessée et saigne d'une blessure au bras qu'elle a bandé de gaze stérile. Dans son autre main, elle brandit un pied-de-biche.";
 	try looking;
+	say "Elle vous regarde avec mépris.";
 	increment the knownCommands of the player.
 	
 After eating scientifique:
 	now the BlockChatterFlag is true;
-	say "[line break]Vous dévorez le cerveau de la scientifique. Immédiatement vous voyez le monde d'un point de vue plus raffiné et érudit.[paragraph break]«[unicode 160][italic type]C'est fait[unicode 160]? demande la voix d'Isabelle avec hésitation.[line break]-- Oui, tu étais délicieuse, enthousiasme le souris.[line break]-- Le meilleur jusqu'ici, ajoute Lucky.[line break]-- Excuse mes co-esprits, ils manquent cruellement de tact, intervient la tranche de cerveau.[line break]-- Hé[unicode 160]! gémissent la souris et le chien.[line break]-- Sois la bienvenue, Isabelle, continue la tranche de cerveau. Laisse-moi te présenter notre petite troupe[unicode 160]:[unicode 160]voilà Lucky, le chien, et ici figure Le Marquis Des Souris (ou juste simplement [quotation mark]Souris[quotation mark] parce qu'il est plutôt modeste), et moi, je suis le nommé [quotation mark]tranche de cerveau[quotation mark]. On est à ta disposition.[line break]-- Bonjour, les gars, dit Isabelle avec chaleur. [unicode 160]»[paragraph break]";
+	say "[line break]Vous dévorez le cerveau de la scientifique. Immédiatement vous voyez le monde d'un point de vue plus raffiné et érudit.[paragraph break]«[unicode 160][italic type]C'est fait[unicode 160]? demande la voix d'Isabelle avec hésitation.[line break]-- Oui, tu étais délicieuse, enthousiasme le souris.[line break]-- Le meilleur jusqu'ici, ajoute Lucky.[line break]-- Excuse mes co-esprits, ils manquent cruellement de tact, intervient la tranche de cerveau.[line break]-- Hé[unicode 160]! gémissent la souris et le chien.[line break]-- Sois la bienvenue, Isabelle, continue la tranche de cerveau. Laisse-moi te présenter notre petite troupe[unicode 160]:[unicode 160]voilà Lucky, le chien, et ici figure Le Marquis Des Souris (ou juste simplement [quotation mark]Souris[quotation mark] parce qu'il est plutôt modeste), et moi, je suis le nommé [quotation mark]tranche de cerveau[quotation mark]. On est à ta disposition.[line break]-- Bonjour, les gars, dit Isabelle avec chaleur. [unicode 160]»[line break]";
 	move the dépouille sanglante du Docteur Rambaud to the sas;
 	move the interphone to the sas;
 	move the panneau électrique to escalier 1;
@@ -959,7 +965,6 @@ Section MouseDog Dialogue
 mouseDogDialogue is a list of text that varies. 
 
 mouseDogDialogue is {
-"Désolé.[line break]-- Quoi, désolé[unicode 160]?[line break]-- Moi, je suis désolé de t'avoir mangé.[line break]-- De m'avoir mangé[unicode 160]? Dis donc, qui es-tu[unicode 160]?[line break]-- La souris.",
 "La souris[unicode 160]? Quelle souris[unicode 160]?[line break]-- La souris qui habite ici.[line break]-- La maudite souris qui vole toujours les restes autour de mon distributeur[unicode 160]?[line break]-- Ouais, la même. Une fois de plus, je suis désolé de t'avoir dérangé.",
 "Pas du tout. J'aurais fait pareil.[line break]-- Bon, merci.[line break]-- Dis, souris, as-tu un nom[unicode 160]?[line break]-- Non. Nous les souris n'avons pas de noms. Tu peux m'appeler simplement [quotation mark]Souris[quotation mark]. Et toi[unicode 160]? Comment tu t'appelles[unicode 160]?[line break]-- [quotation mark]Lucky[quotation mark]. C'est le nom que ma famille m'a donné avant que je sois arrivé ici. Les bourreaux me désignent [quotation mark]Sujet 205-Alpha[quotation mark], mais je préfère [quotation mark]Lucky[quotation mark].[line break]-- D'accord, Lucky.",
 "Souris, peux-tu m'expliquer quelque chose[unicode 160]? Je suis toujours perplexe. Comment se fait-il que toi, une souris, un animal tout petit, puisse manger un chien comme moi, de plusieurs fois ta taille[unicode 160]?[line break]-- Je me suis demandé la même chose. Tiens -- t'es un chien[unicode 160]? Je pensais que tu étais un loup[unicode 160]![line break]-- Non, un chien.[line break]-- Ah bon[unicode 160]?[line break]-- Oui. J'en suis certain.",
@@ -977,7 +982,6 @@ Section MouseDogGuard Dialogue
 mouseDogGuardDialogue is a list of text that varies. 
 
 mouseDogGuardDialogue is { 
-"Il faut patrouiller[unicode 160]! ordonne une nouvelle voix.[line break]-- Patrouiller[unicode 160]? Qu'est que ça veut dire[unicode 160]? demande la souris.[line break]-- Cela signifie marcher partout, pour sécuriser l'installation, répond la voix.[line break]-- J'aime bien faire des promenades[unicode 160]! dit Lucky tout excité.",
 "Si je puis poser une question, demande la souris, qui es-tu[unicode 160]?[line break]-- Mon nom est… euh… voyons… un instant… bonne question. En effet, je ne me souviens pas. Le nom m[apostrophe]échappe pour l'instant. Que proposerais-tu[unicode 160]?[line break]-- Appelons-le [quotation mark]La petite tranche de cerveau que nous avons trouvée dans le frigo et dont la saveur était un peu avariée[quotation mark], conseille le chien.[line break]-- Non, c'est vraiment trop long. Disons plutôt simplement [quotation mark]la tranche de cerveau[quotation mark]. Est-ce que ça te convient[unicode 160]?[line break]-- Oui, dit la tranche de cerveau, de toute manière, j'ai une préférence pour les noms courts.", 
 "Avez-vous des noms[unicode 160]? questionne la tranche de cerveau.[line break]-- Oui, répond le chien. Pardonne notre manque de politesse. Je m'appelle Lucky et mon amie la souris est tout simplement appelée [quotation mark]Souris[quotation mark].[line break]-- C'est exact, confirme la souris.[line break]-- C'est un plaisir de faire votre connaissance, mes nouveaux amis.", 
 "Alors, tranche de cerveau, je me demande quelle sorte d'animal tu étais avant d'arriver ici. J[apostrophe]étais un chien et la souris a toujours été une souris.[line break]-- J[apostrophe]étais quelque chose d'autre qu'une tranche de cerveau auparavant[unicode 160]?[line break]-- Il me semble que tu étais un frigo, suggère la souris. J'ai mangé le cerveau d'un chien est Lucky est apparu. Puis nous avons ouvert et mangé un frigo et tu es apparu.[line break]-- Je ne crois pas que ça fonctionne comme ça, murmure Lucky.", 
