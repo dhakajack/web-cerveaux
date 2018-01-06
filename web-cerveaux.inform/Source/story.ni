@@ -251,7 +251,7 @@ To say liftDoorDogStatus:
 	if the door east from the location is closed:
 		say ". Au milieu du mur à l[apostrophe]est, un bouton brille avec une lueur rouge";
 	otherwise:
-		say ". Le mur à l'est a disparu".
+		say ". Le ouverture à l'est a disparu".
 			
 To say pnCouloir2:
 	if the consciousness of the player is:
@@ -603,7 +603,7 @@ To say pnDeconDoor:
 Instead of simplePushing when the player is in the Salle de Décontamination:
 	if the consciousness of the player is:
 		-- 3:
-			say "L'eau chaude vous détend. Après un instant, la douche s'éteint.";
+			say "L'eau chaude vous détend. Après un instant, la douche s[apostrophe]éteint.";
 		-- 4:
 			say "Le système de décontamination vous asperge avec une solution caustique.".
 
@@ -662,7 +662,8 @@ To say descSas:
 		-- 3:
 			say "Une longue pièce tubulaire baignée de lumière rouge";
 		-- 4:
-			say "Les lourdes portes blindées, le manque de fenêtres et la forme tubulaire de la pièce vous rappellent un sous-marin. La lumière au-dessus de la porte à l'autre extrémité de la pièce signifie qu'elle est verrouillée".
+			say "Les lourdes portes blindées, le manque de fenêtres et la forme tubulaire de la pièce vous rappellent un sous-marin. La lumière au-dessus de la porte à l'autre extrémité de la pièce signifie qu'elle est verrouillée";
+		say ". Les escaliers sont au sud".
 			
 Instead of going north when the player is in the sas:
 	if scientifique is in the sas:
