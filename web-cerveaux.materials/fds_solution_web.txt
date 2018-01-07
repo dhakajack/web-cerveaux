@@ -1,4 +1,4 @@
-* Notez: Notez: La version en ligne de Faute De Servo utilise Vorple 3 qui fonctionne bien avec Google Chrome et Mozilla Firefox. Une version pour interpréteurs est disponible pour télécharger.
+* Notez: Notez: La version en ligne de Faute De Servo utilise Vorple 3 qui fonctionne mieux avec Google Chrome. Une version pour interpréteurs est disponible pour télécharger.
 
 === SOLUTION ===
 
