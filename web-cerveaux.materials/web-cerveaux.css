@@ -1,6 +1,6 @@
 /*
 
-Style sheet for test 4
+Style sheet Faute de servo, version 2
 
 */
 
@@ -55,43 +55,53 @@ a {
 	top: 570px;
 }
 
-.noir {
+a.noir {
+	color:black;
 	background:black;
 }
 
-.brun {
+a.brun {
+	color:brown;
 	background:brown;
 }
 
-.rouge {
+a.rouge {
+	color:red;
 	background:red;
 }
 
-.orange {
+a.orange {
+	color:orange;
 	background:orange;
 }
 
-.jaune {
+a.jaune {
+	color:yellow;
 	background:yellow;
 }
 
-.vert {
+a.vert {
+	color:green;
 	background:green;
 }
 
-.bleu {
+a.bleu {
+	color:blue;
 	background:blue;
 }
 
-.violet {
+a.violet {
+	color:violet;
 	background:violet;
 }
 
-.gris {
+a.gris {
+	color:grey;
 	background:grey;
 }
 
-.blanc {
+a.blanc {
+	color:white;
 	background:white;
 }
 

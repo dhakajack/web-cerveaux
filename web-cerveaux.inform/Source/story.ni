@@ -2,7 +2,7 @@
 
 The story headline is "Un voyageur sans esprit".
 The story genre is "horror".
-The release number is 1.
+The release number is 2.
 The story creation year is 2017.
 The story description is "On ne manque jamais de mémoire."
 
@@ -153,7 +153,7 @@ For printing a locale paragraph about a door (called the item)
 Chapter 7 - Button Setup
 
 Palette is a list of text that varies. 
-Palette is {"noir","brun","rouge","orange","jaune","vert","bleu","violet","gris","white"}.
+Palette is {"noir","brun","rouge","orange","jaune","vert","bleu","violet","gris","blanc"}.
 	
 Chapter 8 - Start of Play
 
@@ -836,7 +836,7 @@ To increment the knownCommands of the player:
 	let R be the number of entries in commandList;
 	repeat with N running from 1 to R:
 		let E be entry N of commandList;
-		place a link to the command "[entry E of actionList]" called "box[n] [entry E of palette]" reading "[if debugMode is true]b-[N]:[entry E of actionList][end if]".
+		place a link to the command "[entry E of actionList]" called "box[n] [entry E of palette]" reading "[entry E of palette]".
 				
 Chapter 13 - Milestones
 
@@ -942,6 +942,12 @@ Every turn:
 						remove entry 1 from EverybodyDialogue;
 	now the BlockChatterFlag is false;
 	listExits.
+	
+	
+[This is the scroll update rule:
+	scroll to the bottom of the page.
+	
+The scroll update rule is listed last in the every turn rules.]
 	
 	
 Section Mouse Dialogue
