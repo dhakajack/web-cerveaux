@@ -2,7 +2,7 @@
 
 The story headline is "Un voyageur sans esprit".
 The story genre is "horror".
-The release number is 2.
+The release number is 3.
 The story creation year is 2017.
 The story description is "On ne manque jamais de mémoire."
 
