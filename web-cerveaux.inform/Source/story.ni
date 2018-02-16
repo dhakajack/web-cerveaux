@@ -1,4 +1,4 @@
-"Faute De Servo" by Tana Ostrova
+"Faute De Servo" by Jack Welch
 
 The story headline is "Un voyageur sans esprit".
 The story genre is "horror".
