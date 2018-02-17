@@ -163,6 +163,7 @@ When play begins:
 	place a block level element called "arrows";
 	sort the palette in random order;
 	increment the knownCommands of the player;
+	place a link to the command "[entry 1 of actionList]" called "hidden" reading "[entry 1 of actionList]";
 	listExits.
 
 After printing the banner text:
@@ -831,7 +832,7 @@ The commandList is a list of numbers that varies. The commandList is {}.
 To increment the knownCommands of the player:
 	increase the knownCommands of the player by 1;
 	add the knownCommands of the player to commandList;
-	place a link to the command "[entry knownCommands of the player of actionList]" called "box[knownCommands of the player] [entry knownCommands of the player of palette]" .
+	place a link to the command "[entry knownCommands of the player of actionList]" called "box[knownCommands of the player] [entry knownCommands of the player of palette]" reading "[if debugMode is true][entry knownCommands of the player of actionList][end if]".
 				
 Chapter 13 - Milestones
 
@@ -936,8 +937,10 @@ Every turn:
 						say "[italic type]«[unicode 160][entry 1 of EverybodyDialogue][unicode 160]»[roman type][paragraph break]";
 						remove entry 1 from EverybodyDialogue;
 	now the BlockChatterFlag is false;
-	listExits.
-	
+	listExits;
+	[to facilitate play using a screen reader]
+	repeat with N running from 1 to knownCommands of the player:	
+		place a link to the command "[entry N of actionList]" called "hidden" reading "[entry N of actionList]".
 	
 [This is the scroll update rule:
 	scroll to the bottom of the page.
