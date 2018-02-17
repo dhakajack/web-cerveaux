@@ -829,14 +829,9 @@ actionList is a list of text that varies. actionList is {"est", "ouest","manger"
 The commandList is a list of numbers that varies. The commandList is {}.
 
 To increment the knownCommands of the player:
-	remove all elements called "vorple-link";
 	increase the knownCommands of the player by 1;
 	add the knownCommands of the player to commandList;
-	sort commandList in random order;
-	let R be the number of entries in commandList;
-	repeat with N running from 1 to R:
-		let E be entry N of commandList;
-		place a link to the command "[entry E of actionList]" called "box[n] [entry E of palette]" reading "[entry E of palette]".
+	place a link to the command "[entry knownCommands of the player of actionList]" called "box[knownCommands of the player] [entry knownCommands of the player of palette]" .
 				
 Chapter 13 - Milestones
 
