@@ -114,7 +114,7 @@ To say hiddenExitList:
 		if (N is greater than 1 and X is N):
 			say " et ";
 		say entry X of LL;
-		if (N is greater than 2 and (N - X) is greater than 0):
+		if (N is greater than 2 and X is less than (N - 1)):
 			say ", ".
 
 Chapter 5 - Pinch hitting for French Module
@@ -863,6 +863,14 @@ To increment the knownCommands of the player:
 	increase the knownCommands of the player by 1;
 	add the knownCommands of the player to commandList;
 	place a link to the command "[entry knownCommands of the player of actionList]" called "box[knownCommands of the player] [entry knownCommands of the player of palette]" reading "[if debugMode is true][entry knownCommands of the player of actionList][end if]".
+	
+Understand "est/ouest/manger/ouvrir/nord/sud/pousser/déverrouiller/parler/réparer" as "[okayCommand]".
+
+[To prevent players using a screen reader to enter arbitrary commands]
+After reading a command:
+	if the player's command does not match "[okayCommand]":
+		say "Choisissez une commande actuellement disponible dans la liste ci-dessus.";
+		reject the player's command.
 				
 Chapter 13 - Milestones
 
@@ -1124,10 +1132,15 @@ Instead of touching the servomoteur:
 
 Chapter 16 - End Game
 
+[no asterisks at end]
+The print obituary headline rule is not listed in any rulebook.
+
 To terminate the game:
 	remove all elements called "vorple-link";
-	say "[VictoryText]".
-		
+	say "[VictoryText]";
+	[to prevent screen readers from continuing past this point]
+	now the knownCommands of the player is 0.
+	
 To say VictoryText:
 	say "[paragraph break][bold type]        *** VOUS AVEZ GAGNÉ ***[roman type][paragraph break]Vous avez sauvé le monde du fléau du virus zombie777.[paragraph break][bold type]>infos[roman type][line break]Ce jeu participe au Concours Francophone de Fictions Interactives (2017). Il a été écrit en Inform 7.[paragraph break][bold type]>remerciements[roman type][paragraph break]Je voudrais remercier :[paragraph break]* Les organisateurs du concours.[line break]* Graham Nelson pour avoir conçu et écrit Inform 7.[line break]* Juhana Leinonen pour l'extension [quotation mark]Vorple[quotation mark].[line break]* Ben Collins-Sussman, qui a peint la couverture à l'aquarelle.[line break]* Relecteurs: Éric Forgeot et Stéphane Flauder.[line break]* Beta-testeurs: Brian Rushton, Denise Jobin et Hugo Labrande.[paragraph break][bold type]FIN."
 	
