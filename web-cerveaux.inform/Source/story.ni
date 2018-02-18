@@ -978,7 +978,7 @@ Every turn:
 The scroll update rule is listed last in the every turn rules.]
 
 To listHiddenCommands:
-	place an inline element called "hidden" reading "Commands disponibles :";
+	place an inline element called "hidden" reading "Commandes disponibles :";
 	repeat with N running from 1 to knownCommands of the player:	
 		place an inline element called "hidden" reading " ";
 		place a link to the command "[entry N of actionList]" called "hidden" reading "[entry N of actionList]";
