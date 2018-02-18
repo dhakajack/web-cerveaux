@@ -71,13 +71,11 @@ Chapter 4 - Exit Lister
 
 To listExits:
 	clear all elements called "arrows";
-	clear all elements called "hidden-arrows";
-	display text "[exitList]" in the element called "arrows";
-	display text "BOB" in the element called "hidden-arrows".
-	
+	display text "[exitList]" in the element called "arrows".
+
 
 To say exitList:
-	let L be {up, west, north, south, east, down};
+	let L be {west, north, south, east};
 	repeat with way running through L:
 		if the room the way from the location is not nothing:
 			let D be the door the way from the location;
@@ -90,7 +88,34 @@ To say exitList:
 					-- south:
 						say "\u2193 ";
 					-- east:
-						say "\u2192 ";
+						say "\u2192 ".
+						
+To listHiddenExits:
+	place an inline element called "hidden" reading "Sorties éventuelles: [hiddenExitList]. "
+	
+To say hiddenExitList:
+	let L be {west, north, south, east};
+	let LL be a list of text;
+	repeat with way running through L:
+		if the room the way from the location is not nothing:
+			let D be the door the way from the location;
+			if D is nothing or D is open or (D is simpleOpenable and the consciousness of the player is greater than 0) or (D is buttoned and the consciousness of the player is greater than one) or (D is locked and the consciousness of the player is greater than two):
+				if the way is:
+					-- west:
+						add "à l'ouest" to LL;
+					-- north:
+						add "au nord" to LL;
+					-- south:
+						add "au sud" to LL;
+					-- east:
+						add "à l'est" to LL;
+	let N be the number of entries in LL;
+	repeat with X running from 1 to N:
+		if (N is greater than 1 and X is N):
+			say " et ";
+		say entry X of LL;
+		if (N is greater than 2 and (N - X) is greater than 0):
+			say ", ".
 
 Chapter 5 - Pinch hitting for French Module
 
@@ -163,14 +188,16 @@ When play begins:
 	if debugMode is false:
 		hide the prompt;
 	place a block level element called "arrows";
-	place a block level element called "hidden-arrows";
 	sort the palette in random order;
-	increment the knownCommands of the player;
-	place a link to the command "[entry 1 of actionList]" called "hidden" reading "[entry 1 of actionList]";
-	listExits.
+	increment the knownCommands of the player.
+
 
 After printing the banner text:
-	say "[line break][italic type]Où suis-je[unicode 160]? D'ailleurs… qui suis-je[unicode 160]?[roman type][paragraph break]Vous vous réveillez tout seul dans une pièce plutôt banale et bleuâtre.[paragraph break][italic type]Pourquoi je ne me souviens de rien[unicode 160]?[paragraph break]Je dois me concentrer[unicode 160]! Qu'est-ce qui s'est passé[unicode 160]?[paragraph break]En tout cas, la solution n'est pas ici -- il faut explorer un peu.".
+	listExits;
+	listHiddenExits;
+	listHiddenCommands;
+	say "[line break][italic type]Où suis-je[unicode 160]? D'ailleurs… qui suis-je[unicode 160]?[roman type][paragraph break]Vous vous réveillez tout seul dans une pièce plutôt banale et bleuâtre.[paragraph break][italic type]Pourquoi je ne me souviens de rien[unicode 160]?[paragraph break]Je dois me concentrer[unicode 160]! Qu'est-ce qui s'est passé[unicode 160]?[paragraph break]En tout cas, la solution n'est pas ici -- il faut explorer un peu."
+
 	
 Chapter 9 - Geography
 
@@ -941,15 +968,21 @@ Every turn:
 						remove entry 1 from EverybodyDialogue;
 	now the BlockChatterFlag is false;
 	listExits;
-	[to facilitate play using a screen reader]
-	repeat with N running from 1 to knownCommands of the player:	
-		place a link to the command "[entry N of actionList]" called "hidden" reading "[entry N of actionList]".
+	listHiddenExits;
+	listHiddenCommands.
+	
 	
 [This is the scroll update rule:
 	scroll to the bottom of the page.
 	
 The scroll update rule is listed last in the every turn rules.]
-	
+
+To listHiddenCommands:
+	place an inline element called "hidden" reading "Commands disponibles :";
+	repeat with N running from 1 to knownCommands of the player:	
+		place an inline element called "hidden" reading " ";
+		place a link to the command "[entry N of actionList]" called "hidden" reading "[entry N of actionList]";
+	place an inline element called "hidden" reading ". ".
 	
 Section Mouse Dialogue
 
