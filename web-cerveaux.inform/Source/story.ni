@@ -855,7 +855,9 @@ To increment the consciousness of the player:
 
 Chapter 12 - Known Commands
 
-actionList is a list of text that varies. actionList is {"est", "ouest","manger","ouvrir","nord","sud","pousser","d\u00E9verrouiller","parler","r\u00E9parer"}
+The list of text called actionList is always {"est", "ouest","manger","ouvrir","nord","sud","pousser","d\u00E9verrouiller","parler","r\u00E9parer"}.
+
+The list of text called unescapedActionList is always {"est", "ouest","manger","ouvrir","nord","sud","pousser","déverrouiller","parler","réparer"}.
 
 The commandList is a list of numbers that varies. The commandList is {}.
 
@@ -989,7 +991,7 @@ To listHiddenCommands:
 	place an inline element called "hidden" reading "Commandes disponibles :";
 	repeat with N running from 1 to knownCommands of the player:	
 		place an inline element called "hidden" reading " ";
-		place a link to the command "[entry N of actionList]" called "hidden" reading "[entry N of actionList]";
+		place a link to the command "[entry N of actionList]" called "hidden" reading "[entry N of unescapedActionList]";
 	place an inline element called "hidden" reading ". ".
 	
 Section Mouse Dialogue
