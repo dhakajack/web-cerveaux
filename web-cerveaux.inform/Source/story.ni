@@ -870,9 +870,13 @@ Understand "est/ouest/manger/ouvrir/nord/sud/pousser/déverrouiller/parler/répa
 
 [To prevent players using a screen reader to enter arbitrary commands]
 After reading a command:
-	if the player's command does not match "[okayCommand]":
-		say "Choisissez une commande actuellement disponible dans la liste ci-dessus.";
-		reject the player's command.
+	if the knownCommands of the player is zero:
+		say "Le jeu est terminé.  Pour rejouer, rechargez le jeu dans votre navigateur.";
+		reject the player's command;
+	otherwise:
+		if the player's command does not match "[okayCommand]":
+			say "Choisissez une commande actuellement disponible dans la liste ci-dessus.";
+			reject the player's command.
 				
 Chapter 13 - Milestones
 
@@ -978,9 +982,9 @@ Every turn:
 						remove entry 1 from EverybodyDialogue;
 	now the BlockChatterFlag is false;
 	listExits;
-	listHiddenExits;
-	listHiddenCommands.
-	
+	if the knownCommands of the player is greater than 0:
+		listHiddenExits;
+		listHiddenCommands.
 	
 [This is the scroll update rule:
 	scroll to the bottom of the page.
@@ -1134,9 +1138,6 @@ Instead of touching the servomoteur:
 
 Chapter 16 - End Game
 
-[no asterisks at end]
-The print obituary headline rule is not listed in any rulebook.
-
 To terminate the game:
 	remove all elements called "vorple-link";
 	say "[VictoryText]";
@@ -1144,7 +1145,7 @@ To terminate the game:
 	now the knownCommands of the player is 0.
 	
 To say VictoryText:
-	say "[paragraph break][bold type]        *** VOUS AVEZ GAGNÉ ***[roman type][paragraph break]Vous avez sauvé le monde du fléau du virus zombie777.[paragraph break][bold type]>infos[roman type][line break]Ce jeu participe au Concours Francophone de Fictions Interactives (2017). Il a été écrit en Inform 7.[paragraph break][bold type]>remerciements[roman type][paragraph break]Je voudrais remercier :[paragraph break]* Les organisateurs du concours.[line break]* Graham Nelson pour avoir conçu et écrit Inform 7.[line break]* Juhana Leinonen pour l'extension [quotation mark]Vorple[quotation mark].[line break]* Ben Collins-Sussman, qui a peint la couverture à l'aquarelle.[line break]* Relecteurs: Éric Forgeot et Stéphane Flauder.[line break]* Beta-testeurs: Brian Rushton, Denise Jobin et Hugo Labrande.[paragraph break][bold type]FIN."
+	say "[paragraph break][bold type]        *** VOUS AVEZ GAGNÉ ***[roman type][paragraph break]Vous avez sauvé le monde du fléau du virus zombie777.[paragraph break][bold type]>infos[roman type][line break]Ce jeu participe au Concours Francophone de Fictions Interactives (2017). Il a été écrit en Inform 7.[paragraph break][bold type]>remerciements[roman type][paragraph break]Je voudrais remercier :[paragraph break]* Les organisateurs du concours.[line break]* Graham Nelson pour avoir conçu et écrit Inform 7.[line break]* Juhana Leinonen pour l'extension [quotation mark]Vorple[quotation mark].[line break]* Ben Collins-Sussman, qui a peint la couverture à l'aquarelle.[line break]* Relecteurs: Éric Forgeot et Stéphane Flauder.[line break]* Bêta-testeurs: Brian Rushton, Denise Jobin et Hugo Labrande.[paragraph break][bold type]FIN."
 	
 Chapter 17 - Testing
 
