@@ -22,6 +22,8 @@ Release along with cover art, a file of "Description" called "description.txt" a
 debugMode is a truth state that varies. debugMode is FALSE.
 [*******]
 
+forceScroll is a truth state that varies. forceScroll is TRUE.
+
 Chapter 1 - Override Vorple
 
 [To get around escaping of characters so I can use escaped unicode to render accented characters and symbols]
@@ -185,6 +187,9 @@ Palette is {"noir","brun","rouge","orange","jaune","vert","bleu","violet","gris"
 Chapter 8 - Start of Play
 
 When play begins:
+	execute JavaScript command "function forceScroll() {if((navigator.userAgent.indexOf('Opera') || navigator.userAgent.indexOf('OPR') || navigator.userAgent.indexOf('Chrome')) != -1 ) {return false;} else {return true;}} forceScroll()";
+	if the JavaScript command returned false:
+		now forceScroll is false;
 	if debugMode is false:
 		hide the prompt;
 	place a block level element called "arrows";
@@ -874,7 +879,7 @@ After reading a command:
 		reject the player's command;
 	otherwise:
 		if the player's command does not match "[okayCommand]":
-			say "Choisissez une commande actuellement disponible dans la liste ci-dessus.";
+			say "Sélectionnez une commande parmi les liens ci-dessus.";
 			reject the player's command.
 				
 Chapter 13 - Milestones
@@ -923,7 +928,7 @@ After eating the chien:
 	increment the knownCommands of the player.
 	
 After eating the morceau de cerveau:
-	say "[line break]En mâchant la tranche de cerveau, vous sentez un saveur désagréable, mais ça s'estompe presque immédiatement.[paragraph break]Pendant quelques moments rien ne se passe et vous vous demandez si vous pouvez maintenant manger n'importe quoi en toute impunité.[paragraph break]Soudain, le monde passe du monochrome à la couleur vive. Une vague électrique parcourt votre esprit et vous vous effondrez, désorienté. Lorsque vous vous mettez debout, des nouvelles idées se mêlent à vos pensées et vous voyez tout sous un nouveau jour.";
+	say "[line break]En mâchant la tranche de cerveau, vous sentez un saveur désagréable, mais ça s'estompe presque immédiatement.[paragraph break]Pendant quelques moments rien ne se passe et vous vous demandez si vous pouvez maintenant manger n'importe quoi en toute impunité.[paragraph break]Soudain, le monde passe de plutôt monochrome à la couleur vive. Une vague électrique parcourt votre esprit et vous vous effondrez, désorienté. Lorsque vous vous mettez debout, des nouvelles idées se mêlent à vos pensées et vous voyez tout sous un nouveau jour.";
 	now the potty is plural-named;
 	now indefinite article of the potty is "des";
 	increment the consciousness of the player;
@@ -984,10 +989,16 @@ Every turn:
 	if the knownCommands of the player is greater than 0:
 		listHiddenExits.
 	
-[This is the scroll update rule:
-	scroll to the bottom of the page.
+
+[This is a little kludgey, but necessary because the javascript library at present behaves differently 
+across browers. For Chrome and Opera, it is not necessary. However, for Safari and Firefox (and 
+perhaps others), when a hyperlink is clicked, the window scrolls upwards. This rule forces the window to scroll back to the bottom. After that, the player can still manually scroll backwards to see previous bits of the story.]
+
+This is the scroll update rule:
+	if forceScroll is true:
+		scroll to the bottom of the page.
 	
-The scroll update rule is listed last in the every turn rules.]
+The scroll update rule is listed last in the every turn rules.
 	
 Section Mouse Dialogue
 
