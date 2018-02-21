@@ -188,15 +188,14 @@ When play begins:
 	if debugMode is false:
 		hide the prompt;
 	place a block level element called "arrows";
-	sort the palette in random order;
-	increment the knownCommands of the player.
+	sort the palette in random order.
 
 
 After printing the banner text:
 	listExits;
 	listHiddenExits;
-	listHiddenCommands;
-	say "[line break][italic type]Où suis-je[unicode 160]? D'ailleurs… qui suis-je[unicode 160]?[roman type][paragraph break]Vous vous réveillez tout seul dans une pièce plutôt banale et bleuâtre.[paragraph break][italic type]Pourquoi je ne me souviens de rien[unicode 160]?[paragraph break]Je dois me concentrer[unicode 160]! Qu'est-ce qui s'est passé[unicode 160]?[paragraph break]En tout cas, la solution n'est pas ici -- il faut explorer un peu."
+	say "[line break][italic type]Où suis-je[unicode 160]? D'ailleurs… qui suis-je[unicode 160]?[roman type][paragraph break]Vous vous réveillez tout seul dans une pièce plutôt banale et bleuâtre.[paragraph break][italic type]Pourquoi je ne me souviens de rien[unicode 160]?[paragraph break]Je dois me concentrer[unicode 160]! Qu'est-ce qui s'est passé[unicode 160]?[paragraph break]En tout cas, la solution n'est pas ici -- il faut explorer un peu.";
+	increment the knownCommands of the player.
 
 	
 Chapter 9 - Geography
@@ -857,18 +856,18 @@ Chapter 12 - Known Commands
 
 The list of text called actionList is always {"est", "ouest","manger","ouvrir","nord","sud","pousser","d\u00E9verrouiller","parler","r\u00E9parer"}.
 
-The list of text called unescapedActionList is always {"est", "ouest","manger","ouvrir","nord","sud","pousser","déverrouiller","parler","réparer"}.
-
 The commandList is a list of numbers that varies. The commandList is {}.
 
 To increment the knownCommands of the player:
 	increase the knownCommands of the player by 1;
 	add the knownCommands of the player to commandList;
-	place a link to the command "[entry knownCommands of the player of actionList]" called "box[knownCommands of the player] [entry knownCommands of the player of palette]" reading "[if debugMode is true][entry knownCommands of the player of actionList][end if]".
+	place an inline element called "hidden" reading "Une novelle commande est apparue: ";
+	place a link to the command "[entry knownCommands of the player of actionList]" called "box[knownCommands of the player] [entry knownCommands of the player of palette]" reading "[entry knownCommands of the player of palette]";
+	place an inline element called "hidden" reading ". ".
 	
 Understand "est/ouest/manger/ouvrir/nord/sud/pousser/déverrouiller/parler/réparer" as "[okayCommand]".
 
-[To prevent players using a screen reader to enter arbitrary commands]
+[To prevent players bypassing the CSS to enter arbitrary commands]
 After reading a command:
 	if the knownCommands of the player is zero:
 		say "Le jeu est terminé.  Pour rejouer, rechargez le jeu dans votre navigateur.";
@@ -983,20 +982,12 @@ Every turn:
 	now the BlockChatterFlag is false;
 	listExits;
 	if the knownCommands of the player is greater than 0:
-		listHiddenExits;
-		listHiddenCommands.
+		listHiddenExits.
 	
 [This is the scroll update rule:
 	scroll to the bottom of the page.
 	
 The scroll update rule is listed last in the every turn rules.]
-
-To listHiddenCommands:
-	place an inline element called "hidden" reading "Commandes disponibles :";
-	repeat with N running from 1 to knownCommands of the player:	
-		place an inline element called "hidden" reading " ";
-		place a link to the command "[entry N of actionList]" called "hidden" reading "[entry N of unescapedActionList]";
-	place an inline element called "hidden" reading ". ".
 	
 Section Mouse Dialogue
 
@@ -1141,7 +1132,7 @@ Chapter 16 - End Game
 To terminate the game:
 	remove all elements called "vorple-link";
 	say "[VictoryText]";
-	[to prevent screen readers from continuing past this point]
+	[to prevent players bypassing CSS from continuing past this point]
 	now the knownCommands of the player is 0.
 	
 To say VictoryText:
