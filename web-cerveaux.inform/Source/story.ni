@@ -338,7 +338,7 @@ To say openNord:
 		say "Le mur au nord s'ouvre, révélant la pièce voisine".
 
 	
-The cage is an openable closed container in the Laboratoire Zoologique. The indefinite article of cage is "une". The printed name of the cage is "cage[if the cage is open] ouverte[end if]".
+The cage is an openable closed container in the Laboratoire Zoologique. The indefinite article of cage is "une". The printed name of the cage is "cage [if the cage is open]ouverte[otherwise](fermée)[end if]".
 
 The chien is an edible thing. It is in the cage. The printed name of the chien is "[if the consciousness of the player is 1]loup[otherwise]chien[end if]". The chien can be dead. The chien is not dead. The indefinite article of chien is "un".
 
