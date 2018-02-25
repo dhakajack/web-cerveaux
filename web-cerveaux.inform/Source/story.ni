@@ -1139,7 +1139,7 @@ After opening the unité de synthèse microfluidique:
 	
 Instead of touching the servomoteur:
 	now the servomoteur is not broken;
-	say "Vous écartez le morceau de soudure. La machine doit fonctionner normalement lorsque l'alimentation électrique est rétablie."
+	say "Vous écartez le morceau de soudure. Une fois que l'alimentation électrique est rétablie la machine doit fonctionner normalement."
 
 Chapter 16 - End Game
 
