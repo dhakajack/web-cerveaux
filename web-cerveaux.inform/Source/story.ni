@@ -1150,7 +1150,7 @@ To terminate the game:
 
 	
 To say VictoryText:
-	say "[paragraph break][bold type]        *** VOUS AVEZ GAGNÉ ***[roman type][paragraph break]Vous avez sauvé le monde du fléau du virus zombie777.[paragraph break]".
+	say "[line break][bold type]        *** VOUS AVEZ GAGNÉ ***[roman type][paragraph break]Vous avez sauvé le monde du fléau du virus zombie777.[paragraph break]".
 		
 To infos:
 	say "[bold type]>infos[roman type][line break]Ce jeu participe au ";
@@ -1204,7 +1204,7 @@ To credits:
 	say ".";
 	close HTML tag;
 	close HTML tag;
-	say "[line break][bold type]FIN."
+	say "[bold type]FIN."
 	
 Chapter 17 - Testing
 
