@@ -1,10 +1,14 @@
 /*
 
-Style sheet Faute de servo, version 2
+Style sheet Faute de servo
 
 */
 
 a {
+	color:#00a;
+}
+
+.boutons {
 	position: fixed;
 	left: 25px;
  	width: 100px;

@@ -867,7 +867,7 @@ To increment the knownCommands of the player:
 	increase the knownCommands of the player by 1;
 	add the knownCommands of the player to commandList;
 	place an inline element called "hidden" reading "Une novelle commande est apparue: ";
-	place a link to the command "[entry knownCommands of the player of actionList]" called "box[knownCommands of the player] [entry knownCommands of the player of palette]" reading "[entry knownCommands of the player of palette]";
+	place a link to the command "[entry knownCommands of the player of actionList]" called "boutons box[knownCommands of the player] [entry knownCommands of the player of palette]" reading "[entry knownCommands of the player of palette]";
 	place an inline element called "hidden" reading ". ".
 	
 Understand "est/ouest/manger/ouvrir/nord/sud/pousser/déverrouiller/parler/réparer" as "[okayCommand]".
@@ -1143,11 +1143,68 @@ Chapter 16 - End Game
 To terminate the game:
 	remove all elements called "vorple-link";
 	say "[VictoryText]";
+	infos;
+	credits;
 	[to prevent players bypassing CSS from continuing past this point]
 	now the knownCommands of the player is 0.
+
 	
 To say VictoryText:
-	say "[paragraph break][bold type]        *** VOUS AVEZ GAGNÉ ***[roman type][paragraph break]Vous avez sauvé le monde du fléau du virus zombie777.[paragraph break][bold type]>infos[roman type][line break]Ce jeu participe au Concours Francophone de Fictions Interactives (2017). Il a été écrit en Inform 7.[paragraph break][bold type]>remerciements[roman type][paragraph break]Je voudrais remercier :[paragraph break]* Les organisateurs du concours.[line break]* Graham Nelson pour avoir conçu et écrit Inform 7.[line break]* Juhana Leinonen pour l'extension [quotation mark]Vorple[quotation mark].[line break]* Corax pour ses suggestions concernant l'accessibilité.[line break]* Ben Collins-Sussman, qui a peint la couverture à l'aquarelle.[line break]* Relecteurs: Éric Forgeot et Stéphane Flauder.[line break]* Bêta-testeurs: Brian Rushton, Denise Jobin et Hugo Labrande.[paragraph break][bold type]FIN."
+	say "[paragraph break][bold type]        *** VOUS AVEZ GAGNÉ ***[roman type][paragraph break]Vous avez sauvé le monde du fléau du virus zombie777.[paragraph break]".
+		
+To infos:
+	say "[bold type]>infos[roman type][line break]Ce jeu participe au ";
+	place a link to web site "http://www.fiction-interactive.fr/concours/concours-2018/" reading "Concours Francophone de Fictions Interactives";
+	say " (2018). Il a été écrit en ";
+	place a link to web site "http://inform7.com/" reading "Inform 7";
+	say ". Le code source est disponible sur ";
+	place a link to web site "https://github.com/dhakajack/web-engarde" reading "github";
+	say " sous licence ";
+	place a link to web site "https://github.com/dhakajack/web-engarde/blob/master/LICENSE" reading "MIT";
+	say ". Si vous constatez des erreurs, faites-moi signe en utilisant le ";
+	place a link to web site "https://github.com/dhakajack/web-engarde/issues" reading "tracker";
+	say " en ligne.[paragraph break]";
+
+To credits:
+	say "[bold type]>remerciements[roman type]";
+	open HTML tag "ul";
+	open HTML tag "li";
+	say "Les organisateurs du concours.";
+	close HTML tag;
+	open HTML tag "li";
+	place a link to web site "http://www.ifwiki.org/index.php/Graham_Nelson" reading "Graham Nelson";
+	say " pour avoir conçu et écrit Inform.";
+	close HTML tag;
+	open HTML tag "li";
+	place a link to web site "http://www.ifwiki.org/index.php/Juhana_Leinonen" reading "Juhana Leinonen";
+	say " pour l'extension ";
+	place a link to web site "https://vorple-if.com/doc/#inform7" reading "Vorple";
+	say ".";
+	close HTML tag;
+	open HTML tag "li";
+	place a link to web site "http://www.fiction-interactive.fr/author/corax/" reading "Corax";
+	say " pour ses suggestions concernant l'accessibilité.";
+	close HTML tag;
+	open HTML tag "li";
+	place a link to web site "http://www.ifwiki.org/index.php/Ben_Collins-Sussman" reading "Ben Collins-Sussman";
+	say ", qui a peint la couverture à l'aquarelle.";
+	close HTML tag;
+	open HTML tag "li";
+	say "Relecteurs: ";
+	place a link to web site "http://www.ifwiki.org/index.php/Eric_Forgeot" reading "Éric Forgeot";
+	say " et ";
+	place a link to web site "http://www.ifwiki.org/index.php/St%C3%A9phane_Flauder" reading "Stéphane Flauder";
+	say ".";
+	close HTML tag;
+	open HTML tag "li";
+	say "Bêta-testeurs: Denise Jobin, ";
+	place a link to web site "http://www.ifwiki.org/index.php/Mathbrush" reading "Brian Rushton";
+	say ", et ";
+	place a link to web site "http://www.ifwiki.org/index.php/Hugo_Labrande" reading "Hugo Labrande";
+	say ".";
+	close HTML tag;
+	close HTML tag;
+	say "[line break][bold type]FIN."
 	
 Chapter 17 - Testing
 
